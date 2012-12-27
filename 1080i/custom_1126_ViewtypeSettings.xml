@@ -133,6 +133,22 @@
                     <onclick>SetFocus(50)</onclick>
                     <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
                 </control>
+                <!-- MikeBZH44 Start : Add 2 new options -->
+                <control type="radiobutton" id="1647">
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <label>Auto-open cases</label>
+                    <onclick>Skin.ToggleSetting(DVDAutoOpenCase)</onclick>
+                    <selected>Skin.HasSetting(DVDAutoOpenCase)</selected>
+                    <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
+                </control>
+                <control type="radiobutton" id="1651">
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <label>No case for movieset</label>
+                    <onclick>Skin.ToggleSetting(nocaseformovieset)</onclick>
+                    <selected>Skin.HasSetting(nocaseformovieset)</selected>
+                    <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
                 <!--LowList Options-->
                 <control type="radiobutton" id="1630">
                     <include>Objects_MediaMenuButtonAlt2</include>
