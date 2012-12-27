@@ -2433,9 +2433,216 @@
         <value condition="Stringcompare(Container(9000).ListItem(22).Label,Skin.String(CustomFocusOffset))">Control.Move(9000,22)</value>
         <value condition="Stringcompare(Container(9000).ListItem(23).Label,Skin.String(CustomFocusOffset))">Control.Move(9000,23)</value>
     </variable>
-	
 	<variable name="AlternateTimeAndStatsLabelVar">
         <value condition="Window.IsActive(1124) + ![Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)]">$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] [COLOR grey] •  $INFO[System.Date]  •[/COLOR]  $INFO[System.Time]</value>
         <value>[COLOR grey]$INFO[Window(Weather).Property(Current.Condition)]  •  [/COLOR]$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] [COLOR grey] •  $INFO[System.Date]  •[/COLOR]  $INFO[System.Time]</value>
 	</variable>
+    <!-- MikebZH44 start : Resolution Cases Background Variables -->
+    <variable name="ResCase1Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.5.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.5.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.5.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.5.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.5.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes5]</value>
+    </variable>
+    <variable name="ResCase2Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.9.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.9.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.9.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.9.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.9.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes9]</value>
+    </variable>
+    <variable name="ResCase3Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.8.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.8.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.8.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.8.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.8.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes8]</value>
+    </variable>
+    <variable name="ResCase4Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.7.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.7.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.7.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.7.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.7.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes7]</value>
+    </variable>
+    <variable name="ResCase5Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.4.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.4.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.4.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.4.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.4.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes4]</value>
+    </variable>
+    <variable name="ResCase6Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.6.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.6.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.6.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.6.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.6.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes6]</value>
+    </variable>
+    <variable name="ResCase7Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.10.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.10.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.10.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.10.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.10.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes10]</value>
+    </variable>
+    <variable name="ResCase8Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.3.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.3.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.3.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.3.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.3.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes3]</value>
+    </variable>
+    <variable name="ResCase9Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.2.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.2.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.2.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.2.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.2.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes2]</value>
+    </variable>
+    <variable name="ResCase10Var">
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.1.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.1.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommusicvideos)">$INFO[Window(Home).Property(RandomMusicVideo.1.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcaserecentmusicvideos)">$INFO[Window(Home).Property(LatestMusicVideo.1.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.1.VideoResolution)]</value>
+        <value condition="StringCompare(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes1]</value>
+    </variable>
+    <!-- MikebZH44 end -->
+    <!-- MikeBZH44 start : Create new variables to get movie resolution -->
+    <variable name="CustomLiveContentRes1">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.1.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.1.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes2">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.2.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.2.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes3">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.3.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.3.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes4">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.4.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.4.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes5">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.5.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.5.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes6">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.6.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.6.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes7">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.7.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.7.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes8">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.8.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.8.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes9">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.9.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.9.VideoResolution)]</value>
+    </variable>
+    <variable name="CustomLiveContentRes10">
+        <value condition="Container(9000).HasFocus(101) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem1.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(102) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem2.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(103) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem3.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(104) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem4.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(105) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem5.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(106) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem6.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(107) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem7.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(108) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem8.10.VideoResolution)]</value>
+        <value condition="Container(9000).HasFocus(109) | [Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + Window.IsActive(1122)]">$INFO[Window(Home).Property(CustomHomeItem9.10.VideoResolution)]</value>
+    </variable>
+    <variable name="LiveBGCase">
+        <value>$INFO[Skin.String(LiveBGCase)]</value>
+    </variable>
+    <variable name="LiveBGCaseLib">
+        <value condition="Stringcompare(Skin.String(LiveBGCase),clear) | IsEmpty(Skin.String(LiveBGCase))">No</value>
+        <value condition="Stringcompare(Skin.String(LiveBGCase),movies)">Clear</value>
+        <value condition="Stringcompare(Skin.String(LiveBGCase),tvshows)">BD / DVD</value>
+    </variable>
+    <!-- MikeBZH44 end -->
+    <!-- MikeBZH44 Start -->
+    <variable name="ShowcaseCaseBackCase">
+        <value condition="!Skin.HasSetting(clearcases)">back_bd.png</value>
+        <value>back.png</value>
+    </variable>
+    <!-- MikeBZH44 End -->
 </includes>
