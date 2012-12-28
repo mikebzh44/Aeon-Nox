@@ -134,14 +134,14 @@
                     <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
                 </control>
                 <!-- MikeBZH44 Start : Add 2 new options -->
-                <control type="radiobutton" id="1647">
+                <control type="radiobutton" id="1665">
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <label>Auto-open cases</label>
                     <onclick>Skin.ToggleSetting(DVDAutoOpenCase)</onclick>
                     <selected>Skin.HasSetting(DVDAutoOpenCase)</selected>
                     <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
                 </control>
-                <control type="radiobutton" id="1651">
+                <control type="radiobutton" id="1666">
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <label>No case for movieset</label>
                     <onclick>Skin.ToggleSetting(nocaseformovieset)</onclick>
