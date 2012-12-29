@@ -522,9 +522,9 @@
                     <height>320</height>
                     <font>Font_Reg32</font>
                     <pagecontrol>60</pagecontrol>
-					<align>left</align>
+                    <align>left</align>
                     <label fallback="31006">$INFO[ListItem.Plot]</label>
-                    <autoscroll delay="15000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll) + !Control.HasFocus(60)</autoscroll>
+                    <autoscroll delay="15000" time="2000" repeat="10000">Skin.HasSetting(AutoScroll) + !Control.HasFocus(60)</autoscroll>
                     <visible>![ControlGroup(5000).HasFocus(10) | ControlGroup(5000).HasFocus(12) | ControlGroup(5000).HasFocus(21) | ControlGroup(5000).HasFocus(22) | ControlGroup(5000).HasFocus(24)]</visible>
                 </control>
                 <control type="grouplist">
@@ -809,8 +809,6 @@
                     <height>40</height>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                     <texture>arrowright.png</texture>
-                    <colordiffuse>white2</colordiffuse>
-                    <include>Animation_VisibleChange200</include>
                 </control>
             </control>
             <control type="grouplist" id="5000">
@@ -852,7 +850,7 @@
                     <include>DialogVideoInfoButton</include>
                     <visible>IsEmpty(ListItem.Trailer)</visible>
                     <onclick>Action(Close)</onclick>
-                    <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$INFO[ListItem.Label] Trailer,return)</onclick>                
+                    <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$INFO[ListItem.Label] Trailer,return)</onclick>
                     <visible>Container.Content(movies) + ![substring(Container.FolderPath,plugin://) + substring(Container.FolderPath,trailer)]</visible>
                 </control>
                 <control type="button" id="6">
