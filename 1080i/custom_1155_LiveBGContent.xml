@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<window type="dialog" id="1155">
+﻿<window type="dialog" id="1155">
     <defaultcontrol always="true">5</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <onunload>ClearProperty(LiveCasesType,Home)</onunload>
@@ -203,7 +202,7 @@
                         <visible>Library.HasContent(movies) + IsEmpty(Window(Home).Property(LiveCasesType))</visible>
                     </item>
                     <item>
-                        <label>$LOCALIZE[31464] (TV)</label>
+                        <label>$LOCALIZE[31464]</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,dvdcaserecommended)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>Library.HasContent(tvshows) + IsEmpty(Window(Home).Property(LiveCasesType))</visible>
@@ -227,13 +226,6 @@
                         <visible>Library.HasContent(musicvideos) + IsEmpty(Window(Home).Property(LiveCasesType))</visible>
                     </item>
                     <item>
-                        <label>$INFO[Skin.String(SmartPlaylist1.Label)] (VPL 1)</label>
-                        <onclick>Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom1)</onclick>
-                        <onclick>Dialog.Close(1155)</onclick>
-                        <visible>IsEmpty(Window(Home).Property(LiveCasesType))</visible>
-                        <visible>!IsEmpty(Skin.String(SmartPlaylist1.Label))</visible>
-                    </item>
-                    <item>
                         <label>$LOCALIZE[31359]</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,case)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
@@ -250,13 +242,6 @@
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,casemostplayedalbums)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>Library.HasContent(music) + Stringcompare(Window(Home).Property(LiveCasesType),CDs)</visible>
-                    </item>
-                    <item>
-                        <label>$INFO[Skin.String(SmartPlaylist1.Label)] (VPL 1)</label>
-                        <onclick>Skin.SetString(ItemToEdit.MultiFanart,casecustom1)</onclick>
-                        <onclick>Dialog.Close(1155)</onclick>
-                        <visible>Library.HasContent(music) + Stringcompare(Window(Home).Property(LiveCasesType),CDs)</visible>
-                        <visible>!IsEmpty(Skin.String(SmartPlaylist1.Label))</visible>
                     </item>
                     <item>
                         <label>42217</label>
@@ -283,13 +268,6 @@
                         <visible>Library.HasContent(tvshows) + Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
                     </item>
                     <item>
-                        <label>$INFO[Skin.String(SmartPlaylist1.Label)] (VPL 1)</label>
-                        <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocasecustom)</onclick>
-                        <onclick>Dialog.Close(1155)</onclick>
-                        <visible>Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
-                        <visible>!IsEmpty(Skin.String(SmartPlaylist1.Label))</visible>
-                    </item>
-                    <item>
                         <label>42216</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocaserandompics)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
@@ -306,6 +284,54 @@
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocasedailybabes)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist1.Label)] ($INFO[Skin.String(SmartPlaylist1.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom1)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom1)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom1)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist1.Path))</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist2.Label)] ($INFO[Skin.String(SmartPlaylist2.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom2)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom2)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom2)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist2.Path))</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist3.Label)] ($INFO[Skin.String(SmartPlaylist3.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom3)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom3)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom3)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist3.Path))</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist4.Label)] ($INFO[Skin.String(SmartPlaylist4.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom4)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom4)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom4)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist4.Path))</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist5.Label)] ($INFO[Skin.String(SmartPlaylist5.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom5)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom5)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom5)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist5.Path))</visible>
+                    </item>
+                    <item>
+                        <label>$INFO[Skin.String(SmartPlaylist6.Label)] ($INFO[Skin.String(SmartPlaylist6.Type)])</label>
+                        <onclick condition="IsEmpty(Window(Home).Property(LiveCasesType))">Skin.SetString(ItemToEdit.MultiFanart,dvdcasecustom6)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),CDs)">Skin.SetString(ItemToEdit.MultiFanart,casecustom6)</onclick>
+                        <onclick condition="Stringcompare(Window(Home).Property(LiveCasesType),Pics)">Skin.SetString(ItemToEdit.MultiFanart,nocasecustom6)</onclick>
+                        <onclick>Dialog.Close(1155)</onclick>
+                        <visible>!IsEmpty(Skin.String(SmartPlaylist6.Path))</visible>
                     </item>
                 </content>
             </control>

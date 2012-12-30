@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<window>
+﻿<window>
     <allowoverlay>no</allowoverlay>
     <backgroundcolor>backgroundcolor</backgroundcolor>
     <coordinates>
@@ -177,7 +176,7 @@
                             </item>
                             <item id="10">
                                 <label>31066</label>
-                                <onclick>Dialog.Close(all,true)</onclick>
+                                <onclick>Dialog.Close(all)</onclick>
                                 <visible>Control.IsVisible(199)</visible>
                             </item>
                         </content>

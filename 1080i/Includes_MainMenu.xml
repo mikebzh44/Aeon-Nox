@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<includes>
+﻿<includes>
     <include name="Custom1Subs">
         <item>
             <label>$INFO[Skin.String(CustomSub1_1.Label)]</label>
@@ -625,7 +624,7 @@
         </item>
         <item>
             <label>20126</label>
-            <onclick>dialog.close(all,true)</onclick>
+            <onclick>Dialog.Close(all)</onclick>
             <onclick>System.LogOff</onclick>
             <visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub6)) + [System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
         </item>
@@ -2531,7 +2530,7 @@
     </include>
     <include name="WorldWeatherIcons">
         <control type="group">
-            <visible>StringCompare(Control.GetLabel(4322),googleweather2)</visible>
+            <visible>StringCompare(Control.GetLabel(4322),weatherworldbackground)</visible>
             <include>Animation_VisibleChange200</include>
             <include>Animation_WindowFade200</include>
             <include>WeatherWorldGroup2601</include>
