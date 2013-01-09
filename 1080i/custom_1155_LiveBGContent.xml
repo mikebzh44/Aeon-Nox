@@ -4,13 +4,13 @@
     <allowoverlay>no</allowoverlay>
     <onunload>ClearProperty(LiveCasesType,Home)</onunload>
     <controls>
-	    <!-- MikebZH44 Start : Hidden button to get option label -->
+        <!-- MikebZH44 Start : Hidden button to get option label -->
         <control type="label" id="4421">
             <label>$VAR[LiveBGCase]</label>
             <posy>100</posy>
             <include>HiddenObject</include>
         </control>
-	    <!-- MikebZH44 End -->
+        <!-- MikebZH44 End -->
         <control type="group">
             <posy>200</posy>
             <control type="image">
@@ -84,6 +84,7 @@
                 <onclick>Dialog.Close(1155)</onclick>
             </control>
             <!-- MikeBZH44 Start -->
+            <!-- Setting to display clear case, clear case with resolution side logo, BD/DVD case -->
             <control type="button" id="7">
                 <posx>347</posx>
                 <posy>300</posy>
@@ -98,16 +99,34 @@
                 <texturenofocus>dialogs/context_nofocus.png</texturenofocus>
                 <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 <onup>6</onup>
-                <ondown>4</ondown>
+                <ondown>8</ondown>
                 <onclick condition="Stringcompare(Control.GetLabel(4421),clear) | IsEmpty(Control.GetLabel(4421))">Skin.SetString(LiveBGCase,movies)</onclick>
                 <onclick condition="Stringcompare(Control.GetLabel(4421),tvshows)">Skin.SetString(LiveBGCase,clear)</onclick>
                 <onclick condition="Stringcompare(Control.GetLabel(4421),movies)">Skin.SetString(LiveBGCase,tvshows)</onclick>
                 <onclick condition="Stringcompare(Control.GetLabel(4421),clear)">Skin.SetString(LiveBGCase,movies)</onclick>
             </control>
+            <!-- Setting to display clear case or CD case for music -->
+            <control type="radiobutton" id="8">
+                <posx>347</posx>
+                <posy>360</posy>
+                <width>1200</width>
+                <height>60</height>
+                <font>Font_Reg19</font>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white2</focusedcolor>
+                <label>Use CD case rather than clear case for music :</label>
+                <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                <texturenofocus>dialogs/context_nofocus.png</texturenofocus>
+                <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
+                <onup>7</onup>
+                <ondown>4</ondown>
+                <onclick>Skin.ToggleSetting(LiveBGCDCase)</onclick>
+                <selected>Skin.HasSetting(LiveBGCDCase)</selected>
+            </control>
             <!-- MikeBZH44 End -->
             <control type="button">
                 <posx>347</posx>
-                <posy>360</posy>
+                <posy>420</posy>
                 <width>1200</width>
                 <height>60</height>
                 <font>Font_Bold19</font>
@@ -124,7 +143,7 @@
             </control>
             <control type="panel" id="4">
                 <posx>347</posx>
-                <posy>420</posy>
+                <posy>480</posy>
                 <width>1200</width>
                 <height>900</height>
                 <aligny>center</aligny>
