@@ -83,6 +83,7 @@
                 <control type="button" id="1615">
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <label>42309</label>
+                    <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(InfopanelDelay)] $LOCALIZE[31007][/COLOR]</label2>
                     <onclick>ActivateWindow(1114)</onclick>
                     <enable>Stringcompare(Control.GetLabel(4421),infopanelonauto)</enable>
                     <visible>Control.IsVisible(1614)</visible>
@@ -137,7 +138,7 @@
                     <onclick condition="Skin.HasSetting(clearcases)">Skin.Reset(usecases)</onclick>
                     <onclick>Dialog.Close(1126)</onclick>
                     <onclick>SetFocus(50)</onclick>
-                    <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
+                    <visible>[container.content(movies) | Container.Content(musicvideos)] + Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies)</visible>
                 </control>
                 <!-- MikeBZH44 Start : Add 2 new options -->
                 <control type="radiobutton" id="1665">
