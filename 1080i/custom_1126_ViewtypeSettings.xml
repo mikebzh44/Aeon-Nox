@@ -21,6 +21,13 @@
                 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
                 <visible>Control.IsVisible(501) | Control.IsVisible(503) | Control.IsVisible(508)</visible>
             </control>
+            <!-- MikebZH44 Start : Hidden button to get option label -->
+            <control type="label" id="4422">
+               <label>$VAR[CDCase]</label>
+               <posy>200</posy>
+               <include>HiddenObject</include>
+            </control>
+            <!-- MikebZH44 End -->
             <control type="grouplist" id="450">
                 <width>1172</width>
                 <height>1080</height>
@@ -464,13 +471,25 @@
                     <selected>Skin.HasSetting(noflowalbum)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare)</visible>
                 </control>
-                <control type="radiobutton" id="1659">
+                <!-- MikeBZH44 Start -->
+                <control type="button" id="1659">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[31282]</label>
-                    <onclick>Skin.ToggleSetting(usecasescd)</onclick>
-                    <selected>!Skin.HasSetting(usecasescd)</selected>
+                    <label>$LOCALIZE[31482]:</label>
+                    <label2>[COLOR $VAR[FontColorVar]]$VAR[CDCaseLib][/COLOR]</label2>
+                    <onclick condition="Stringcompare(Control.GetLabel(4422),none) | IsEmpty(Control.GetLabel(4422))">Skin.SetString(CDCase,clear)</onclick>
+                    <onclick condition="Stringcompare(Control.GetLabel(4422),cd)">Skin.SetString(CDCase,none)</onclick>
+                    <onclick condition="Stringcompare(Control.GetLabel(4422),clear)">Skin.SetString(CDCase,cd)</onclick>
+                    <onclick condition="Stringcompare(Control.GetLabel(4422),none)">Skin.SetString(CDCase,clear)</onclick>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
                 </control>
+                <control type="radiobutton" id="1670">
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <label>Auto-open cases</label>
+                    <onclick>Skin.ToggleSetting(CDAutoOpenCase)</onclick>
+                    <selected>Skin.HasSetting(CDAutoOpenCase)</selected>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
                 <control type="radiobutton" id="1651">
                     <include>Objects_MediaMenuButtonAlt2</include>
                     <label>31018</label>

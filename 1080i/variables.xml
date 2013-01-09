@@ -2462,7 +2462,8 @@
         <value condition="Window.IsActive(1124) + ![Skin.HasSetting(totalshomehigh) | Skin.HasSetting(timehomehigh)]">$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] [COLOR grey] •  $INFO[System.Date]  •[/COLOR]  $INFO[System.Time]</value>
         <value>[COLOR grey]$INFO[Window(Weather).Property(Current.Condition)]  •  [/COLOR]$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] [COLOR grey] •  $INFO[System.Date]  •[/COLOR]  $INFO[System.Time]</value>
     </variable>
-    <!-- MikebZH44 start : Resolution Cases Background Variables -->
+    <!-- MikebZH44 start -->
+    <!-- Resolution cases background -->
     <variable name="ResCase1Var">
         <value condition="StringCompare(Control.GetLabel(4322),dvdcaserandommovies)">$INFO[Window(home).Property(RandomMovie.5.VideoResolution)]</value>
         <value condition="StringCompare(Control.GetLabel(4322),dvdcaseinprogress)">$INFO[Window(home).Property(WatchList_Movie.5.VideoResolution)]</value>
@@ -2543,8 +2544,7 @@
         <value condition="StringCompare(Control.GetLabel(4322),dvdcase)">$INFO[Window(home).Property(RecentMovie.1.VideoResolution)]</value>
         <value condition="Substring(Control.GetLabel(4322),dvdcasecustom)">$VAR[CustomLiveContentRes1]</value>
     </variable>
-    <!-- MikebZH44 end -->
-    <!-- MikeBZH44 start : Create new variables to get movie resolution -->
+    <!-- Resolution for smart playlist -->
     <variable name="CustomLiveContentRes1">
         <value condition="Substring(Control.GetLabel(4322),1,right)">$INFO[Window(Home).Property(SmartPlaylist1.1.VideoResolution)]</value>
         <value condition="Substring(Control.GetLabel(4322),2,right)">$INFO[Window(Home).Property(SmartPlaylist2.1.VideoResolution)]</value>
@@ -2625,19 +2625,25 @@
         <value condition="Substring(Control.GetLabel(4322),5,right)">$INFO[Window(Home).Property(SmartPlaylist5.10.VideoResolution)]</value>
         <value condition="Substring(Control.GetLabel(4322),6,right)">$INFO[Window(Home).Property(SmartPlaylist6.10.VideoResolution)]</value>
     </variable>
+    <!-- Live Background case option -->
     <variable name="LiveBGCase">
         <value>$INFO[Skin.String(LiveBGCase)]</value>
     </variable>
+    <!-- Live Background case option label -->
     <variable name="LiveBGCaseLib">
         <value condition="Stringcompare(Skin.String(LiveBGCase),clear) | IsEmpty(Skin.String(LiveBGCase))">No</value>
         <value condition="Stringcompare(Skin.String(LiveBGCase),movies)">Clear</value>
         <value condition="Stringcompare(Skin.String(LiveBGCase),tvshows)">BD / DVD</value>
     </variable>
-    <!-- MikeBZH44 end -->
-    <!-- MikeBZH44 Start -->
-    <variable name="ShowcaseCaseBackCase">
-        <value condition="!Skin.HasSetting(clearcases)">back_bd.png</value>
-        <value>back.png</value>
+    <!-- CD case option -->
+    <variable name="CDCase">
+        <value>$INFO[Skin.String(CDCase)]</value>
+    </variable>
+    <!-- CD case option label -->
+    <variable name="CDCaseLib">
+        <value condition="Stringcompare(Skin.String(CDCase),none) | IsEmpty(Skin.String(CDCase))">None</value>
+        <value condition="Stringcompare(Skin.String(CDCase),clear)">Clear</value>
+        <value condition="Stringcompare(Skin.String(CDCase),cd)">CD</value>
     </variable>
     <!-- MikeBZH44 End -->
 </includes>

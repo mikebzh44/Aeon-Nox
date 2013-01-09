@@ -2031,9 +2031,6 @@
                         <include condition="Substring(Skin.String(widgetlist),rss3classic)">RSS3WidgetContent</include>
                         <include condition="Substring(Skin.String(widgetlist),nextairedtvclassic)">NextAiredWidgetContent1124</include>
                         <include condition="Substring(Skin.String(widgetlist),nextairedtvclassic)">NextAiredWidgetContent</include>
-                        <include condition="Substring(Skin.String(widgetlist),Icon1classic)">IconPanel1Items</include>
-                        <include condition="Substring(Skin.String(widgetlist),Icon2classic)">IconPanel2Items</include>
-                        <include condition="Substring(Skin.String(widgetlist),favouriteIconclassic)">FavouritesItems</include>
                     </content>
                 </control>
             </control>
@@ -5583,8 +5580,8 @@
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widget2list),11custompanel)]">Custom5Widget2</include>
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widget2list),12custompanel)]">Custom6Widget2</include>
                     <include condition="Window.IsActive(1124) | Substring(Skin.String(widget2list),babe)">DailyBabesContent2</include>
-                    <include condition="Library.HasContent(tvshows) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),nextairedtvpanel)]">NextAiredWidget2Content1124</include>
-                    <include condition="Library.HasContent(tvshows) + Substring(Skin.String(widget2list),nextairedtvpanel) + !Window.IsActive(1124)">NextAiredWidget2Content</include>
+                    <include condition="Library.HasContent(tvshows) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),nextairedpanel)]">NextAiredWidget2Content1124</include>
+                    <include condition="Library.HasContent(tvshows) + Substring(Skin.String(widget2list),nextairedpanel) + !Window.IsActive(1124)">NextAiredWidget2Content</include>
                     <include condition="System.HasAddon(script.rssclient) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),rss1panel)]">RSS1Widget2Content1124</include>
                     <include condition="System.HasAddon(script.rssclient) + Substring(Skin.String(widget2list),rss1panel)">RSS1Widget2Content</include>
                     <include condition="System.HasAddon(script.rssclient) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),rss2panel)]">RSS2Widget2Content1124</include>
@@ -6196,7 +6193,8 @@
                 </control>
             </control>
     </include>
-    <!-- MikeBZH44 Start : change position for cases and add resolutions clear or BD/DVD Case -->
+    <!-- MikeBZH44 Start -->
+    <!-- Change position for cases and add resolutions clear or BD/DVD Case -->
     <include name="InteractiveCasesBackground">
         <control type="group">
             <animation effect="fade" time="600">VisibleChange</animation>
@@ -6426,7 +6424,7 @@
             </control>
         </control>
     </include>
-    <!-- MikeBZH44 End -->
+    <!-- CD Case -->
     <include name="LiveCDCasesbackground">
         <control type="group">
             <animation effect="fade" time="600">VisibleChange</animation>
@@ -6453,6 +6451,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6473,6 +6478,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6494,6 +6506,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6515,6 +6534,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6536,6 +6562,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6557,6 +6590,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6578,6 +6618,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6599,6 +6646,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6620,6 +6674,13 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -6641,11 +6702,19 @@
                         <height>342</height>
                         <bordertexture>thumbs/boxes/cd_shadow_light.png</bordertexture>
                         <texture background="true">thumbs/boxes/cd_glass.png</texture>
+                        <visible>!Skin.HasSetting(LiveBGCDCase)</visible>
+                    </control>
+                    <control type="image">
+                        <width>375</width>
+                        <height>342</height>
+                        <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
+                        <visible>Skin.HasSetting(LiveBGCDCase)</visible>
                     </control>
                 </control>
             </control>
         </control>
     </include>
+    <!-- MikeBZH44 End -->
     <include name="LiveNoCasesbackground">
         <control type="group">
             <animation effect="fade" time="600">VisibleChange</animation>
