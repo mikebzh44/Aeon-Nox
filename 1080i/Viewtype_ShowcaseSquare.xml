@@ -723,6 +723,7 @@
             <texture background="true">thumbs/boxes/cd_box_closed.png</texture>
             <visible>Stringcompare(Skin.String(CDCase),cd) + Container.Content(albums)</visible>
             <!-- MikeBZH44 End -->
+<<<<<<< HEAD
         </control>
     </include>
     <!-- MikeBZH44 Start : back case for opening -->
@@ -744,6 +745,29 @@
             <visible>Stringcompare(Skin.String(CDCase),cd) + Container.Content(albums)</visible>
         </control>
     </include>
+=======
+        </control>
+    </include>
+    <!-- MikeBZH44 Start : back case for opening -->
+    <include name="MusicShowcaseBack">
+        <control type="image">
+            <posx>-30</posx>
+            <posy>12</posy>
+            <width>426</width>
+            <height>391</height>
+            <texture background="true">thumbs/boxes/cd_shadow_back.png</texture>
+            <visible>Stringcompare(Skin.String(CDCase),clear) + Container.Content(albums)</visible>
+        </control>
+        <control type="image">
+            <posx>-30</posx>
+            <posy>12</posy>
+            <width>426</width>
+            <height>391</height>
+            <texture background="true">thumbs/boxes/cd_box_back.png</texture>
+            <visible>Stringcompare(Skin.String(CDCase),cd) + Container.Content(albums)</visible>
+        </control>
+    </include>
+>>>>>>> 336621c81fe3ffd41b5a4456ef0140bc3a14e19c
     <!-- MikeBZH44 End -->
     <!-- MikeBZH44 Start : front case for opening -->
     <include name="MusicShowcaseCaseOpen">
