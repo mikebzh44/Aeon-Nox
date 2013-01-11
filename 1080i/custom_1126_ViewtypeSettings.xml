@@ -480,7 +480,6 @@
                     <onclick condition="Stringcompare(Control.GetLabel(4422),cd)">Skin.SetString(CDCase,none)</onclick>
                     <onclick condition="Stringcompare(Control.GetLabel(4422),clear)">Skin.SetString(CDCase,cd)</onclick>
                     <onclick condition="Stringcompare(Control.GetLabel(4422),none)">Skin.SetString(CDCase,clear)</onclick>
-<<<<<<< HEAD
                     <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
                 </control>
                 <control type="radiobutton" id="1670">
@@ -490,17 +489,6 @@
                     <selected>Skin.HasSetting(CDAutoOpenCase)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
                 </control>
-=======
-                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
-                </control>
-                <control type="radiobutton" id="1670">
-                    <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>Auto-open cases</label>
-                    <onclick>Skin.ToggleSetting(CDAutoOpenCase)</onclick>
-                    <selected>Skin.HasSetting(CDAutoOpenCase)</selected>
-                    <visible>Stringcompare(Window(home).Property(actualViewtype),ShowcaseSquare) + Container.Content(albums)</visible>
-                </control>
->>>>>>> 336621c81fe3ffd41b5a4456ef0140bc3a14e19c
                 <!-- MikeBZH44 End -->
                 <control type="radiobutton" id="1651">
                     <include>Objects_MediaMenuButtonAlt2</include>
