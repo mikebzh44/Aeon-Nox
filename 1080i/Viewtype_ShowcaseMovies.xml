@@ -97,7 +97,7 @@
                 <control type="image">
                     <include>MovieShowcaseDVDCoverVars</include>
                     <texture background="true" fallback="thumbs/boxes/default_case.png">thumbs/boxes/$VAR[ShowcaseCasePathVar]/back_$VAR[GlobalCaseVar]</texture>
-					<visible>Skin.HasSetting(usecases) + Container.Content(movies) + ![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem.Path,videodb://1/7/)]</visible>
+                    <visible>Skin.HasSetting(usecases) + Container.Content(movies) + ![Skin.HasSetting(NoCaseForMovieset) + SubString(ListItem.Path,videodb://1/7/)]</visible>
                 </control>
                 <!-- MikeBZH44 end -->
                 <!-- MikeBZH44 start : Display Movie disc / Bluray disc / DVD disc / Default disc -->
@@ -677,24 +677,24 @@
             </control>
             <include condition="!Skin.HasSetting(showcasewrap)">scmfixed</include>
             <include condition="Skin.HasSetting(showcasewrap)">scmwrap</include>
- 			        <control type="button" id="1970">
-            <include>HiddenObject</include>
-            <visible>!Container.OnNext + !Container.OnPrevious + !IsEmpty(Container(501).ListItem.Art(discart))</visible>
-			<animation effect="fade" end="100" time="150" delay="2000">Visible</animation>
-        </control> 
-			<control type="group">
- 				<visible>Skin.HasSetting(showcasecdart)</visible>
-				<include>Animation_VisibleChange400</include>
+            <control type="button" id="1970">
+                <include>HiddenObject</include>
+                <visible>!Container.OnNext + !Container.OnPrevious + !IsEmpty(Container(501).ListItem.Art(discart))</visible>
+                <animation effect="fade" end="100" time="150" delay="2000">Visible</animation>
+            </control> 
+            <control type="group">
+                 <visible>Skin.HasSetting(showcasecdart)</visible>
+                <include>Animation_VisibleChange400</include>
                 <animation type="WindowClose" reversible="false">
                     <effect type="fade" start="100" end="0" time="300" />
                     <effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in" />
                 </animation>
-			    <control type="image">
+                <control type="image">
                     <posx>2530</posx>
-					<posy>692</posy>
+                    <posy>692</posy>
                     <width>280</width>
                     <height>280</height>
-					<fadetime>3700</fadetime>
+                    <fadetime>3700</fadetime>
                     <aspectratio align="bottom">keep</aspectratio>
                     <texture background="true">$INFO[Container(501).ListItem.Art(discart)]</texture>
                     <animation type="Conditional" condition="Control.IsVisible(1970)" reversible="true">
@@ -706,13 +706,13 @@
                             <effect type="rotate" start="0" center="auto" end="720" delay="1500" time="2300" tween="cubic" easing="inout"/>
                         </animation>
                 </control>
-				<control type="image">
+                <control type="image">
                     <posx>2530</posx>
-					<posy>972</posy>
+                    <posy>972</posy>
                     <width>280</width>
                     <height>280</height>
-					<fadetime>3700</fadetime>
-					<colordiffuse>22FFFFFF</colordiffuse>
+                    <fadetime>3700</fadetime>
+                    <colordiffuse>22FFFFFF</colordiffuse>
                     <aspectratio align="top">keep</aspectratio>
                     <texture background="true" flipy="true">$INFO[Container(501).ListItem.Art(discart)]</texture>
                       <animation type="Conditional" condition="Control.IsVisible(1970)" reversible="true">
@@ -724,7 +724,7 @@
                             <effect type="rotate" start="0" center="auto" end="720" delay="1500" time="2300" tween="cubic" easing="inout"/>
                         </animation>
                 </control>
-			</control>
+            </control>
         </control>
     </include>
     <include name="MovieShowcaseThumbReflectionDVD">
