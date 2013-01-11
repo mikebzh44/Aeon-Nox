@@ -128,6 +128,9 @@
                         <width>480</width>
                         <height>450</height>
                         <texture>thumbs/boxes/cd_shadow_light.png</texture>
+                        <!-- MikebZH44 Start : Display clear case -->
+                        <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
+                        <!-- MikebZH44 Start -->
                     </control>
                     <control type="group">
                         <animation effect="fade" time="750">VisibleChange</animation>
@@ -137,7 +140,19 @@
                             <width>480</width>
                             <height>450</height>
                             <texture>thumbs/boxes/cd_glass.png</texture>
+                            <!-- MikebZH44 Start : Display clear case -->
+                            <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
+                            <!-- MikebZH44 Start -->
                         </control>
+                        <!-- MikebZH44 Start : Display CD case -->
+                        <control type="image">
+                            <posy>-270</posy>
+                            <width>480</width>
+                            <height>450</height>
+                            <texture>thumbs/boxes/cd_box_closed.png</texture>
+                            <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
+                        </control>
+                        <!-- MikebZH44 Start -->
                     </control>
                 </control>
             </control>
