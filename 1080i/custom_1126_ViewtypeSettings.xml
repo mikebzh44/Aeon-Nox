@@ -51,7 +51,7 @@
                 <control type="button" id="1672">
                     <!-- Toggle Fanart -->
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42308</label>
+                    <label>31708</label>
                     <onclick condition="Container.Content(movies)">SetProperty(BackgroundArea,MoviesBackground,home)</onclick>
                     <onclick condition="Container.Content(tvshows)">SetProperty(BackgroundArea,TVShowsBackground,home)</onclick>
                     <onclick condition="Container.Content(seasons)">SetProperty(BackgroundArea,SeasonBackground,home)</onclick>
@@ -82,7 +82,7 @@
                 </control>
                 <control type="button" id="1615">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42309</label>
+                    <label>31709</label>
                     <label2>[COLOR $VAR[FontColorVar]]$INFO[Skin.String(InfopanelDelay)] $LOCALIZE[31007][/COLOR]</label2>
                     <onclick>ActivateWindow(1114)</onclick>
                     <enable>Stringcompare(Control.GetLabel(4421),infopanelonauto)</enable>
@@ -103,7 +103,7 @@
                 </control>
                 <control type="button" id="1697">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[41159]:</label>
+                    <label>$LOCALIZE[31959]:</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[TVLandscapeThumbSettingsVar][/COLOR]</label2>
                     <onclick>Skin.ToggleSetting(TVLandscapeThumb)</onclick>
                     <visible>[Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),ShowcaseMovies) | Stringcompare(Window(home).Property(actualViewtype),Banners)] + [[Container.Content(tvshows) + ![Skin.HasSetting(tvposterinfopane) | Skin.HasSetting(tvthumbsinfopane)]] | Container.Content(seasons)]</visible>
@@ -168,14 +168,14 @@
                 </control>
                 <control type="radiobutton" id="16307">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[42212]</label>
+                    <label>$LOCALIZE[31812]</label>
                     <onclick>Skin.ToggleSetting(lowlistcdart)</onclick>
                     <selected>Skin.HasSetting(lowlistcdart)</selected>
                     <visible>Container.Content(movies) + Stringcompare(Window(home).Property(actualViewtype),LowList)</visible>
                 </control>
                 <control type="radiobutton" id="16300">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42210</label>
+                    <label>31810</label>
                     <onclick>Skin.ToggleSetting(lowlistclearart)</onclick>
                     <selected>Skin.HasSetting(lowlistclearart)</selected>
                     <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
@@ -214,14 +214,14 @@
                 <!--BigFan Options-->
                 <control type="radiobutton" id="1689">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42310</label>
+                    <label>31710</label>
                     <onclick>Skin.ToggleSetting(bigfanextrafanart)</onclick>
                     <selected>Skin.HasSetting(bigfanextrafanart)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),BigFan) + [Container.Content(tvshows) | Container.Content(movies)]</visible>
                 </control>
                 <control type="button" id="1707">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[41159]:</label>
+                    <label>$LOCALIZE[31959]:</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[BigFanIconLabelVar][/COLOR]</label2>
                     <onclick condition="!Skin.HasSetting(bigfanclearart) + !Skin.HasSetting(bigfanlandscape) + !Skin.HasSetting(bigfanlogo)">Skin.SetBool(bigfanclearart)</onclick>
                     <onclick condition="Skin.HasSetting(bigfanclearart)">Skin.SetBool(bigfanlogo)</onclick>
@@ -234,14 +234,14 @@
                 <!--Landscape Options-->
                 <control type="button" id="1639">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[41159]:</label>
+                    <label>$LOCALIZE[31959]:</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[SeasonLandscapeSettingsVar][/COLOR]</label2>
                     <onclick>Skin.ToggleSetting(SeasonLandscape)</onclick>
                     <visible>Container.Content(seasons) + Stringcompare(Window(home).Property(actualViewtype),Landscape)</visible>
                 </control>
                 <control type="button" id="1633">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[41159]:</label>
+                    <label>$LOCALIZE[31959]:</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[LandscapeTypeLabelVar][/COLOR]</label2>
                     <onclick condition="!Skin.HasSetting(landscapelogo) + !Skin.HasSetting(landscapeonelogo) + !Skin.HasSetting(landscapeclearart)">Skin.SetBool(landscapeonelogo)</onclick>
                     <onclick condition="Skin.HasSetting(landscapeonelogo)">Skin.SetBool(landscapelogo)</onclick>
@@ -261,7 +261,7 @@
                 </control>
                 <control type="radiobutton" id="1636">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42211</label>
+                    <label>31811</label>
                     <onclick>Skin.ToggleSetting(altfloor)</onclick>
                     <selected>Skin.HasSetting(altfloor)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),Landscape) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)] + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)]</visible>
@@ -337,7 +337,7 @@
                 </control>
                 <control type="radiobutton" id="16443">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42311</label>
+                    <label>31711</label>
                     <onclick>Skin.ToggleSetting(posterviewinfopane)</onclick>
                     <selected>Skin.HasSetting(posterviewinfopane)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),posters)</visible>
@@ -499,14 +499,14 @@
                 </control>
                 <control type="radiobutton" id="16839">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42212</label>
+                    <label>31812</label>
                     <onclick>Skin.ToggleSetting(showcasecdart)</onclick>
                     <selected>Skin.HasSetting(showcasecdart)</selected>
                     <visible>Substring(Window(home).Property(actualViewtype),Showcase) + Container.Content(movies)</visible>
                 </control>
                 <control type="radiobutton" id="16840">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42212</label>
+                    <label>31812</label>
                     <onclick>Skin.ToggleSetting(showcasecdartmusic)</onclick>
                     <selected>Skin.HasSetting(showcasecdartmusic)</selected>
                     <visible>Substring(Window(home).Property(actualViewtype),Showcase) + Container.Content(albums)</visible>
@@ -551,7 +551,7 @@
                 </control>
                 <control type="button" id="16571">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>$LOCALIZE[41156]:</label>
+                    <label>$LOCALIZE[31956]:</label>
                     <label2>[COLOR $VAR[FontColorVar]]$VAR[InfoPanelTypeVar][/COLOR]</label2>
                     <onclick condition="!Skin.HasSetting(infopanel2columns) + !Skin.HasSetting(infopanelfanart)">Skin.SetBool(infopanelfanart)</onclick>
                     <onclick condition="Skin.HasSetting(infopanelfanart)">Skin.SetBool(infopanel2columns)</onclick>
@@ -568,7 +568,7 @@
                 </control>
                 <control type="radiobutton" id="16573">
                     <include>Objects_MediaMenuButtonAlt2</include>
-                    <label>42212</label>
+                    <label>31812</label>
                     <onclick>Skin.ToggleSetting(infopanelcdart)</onclick>
                     <selected>Skin.HasSetting(infopanelcdart)</selected>
                     <visible>Container.Content(movies)</visible>
