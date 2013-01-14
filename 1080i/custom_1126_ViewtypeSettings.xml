@@ -280,7 +280,7 @@
                     <onclick>Skin.ToggleSetting(unwatchedicon)</onclick>
                     <selected>Skin.HasSetting(unwatchedicon)</selected>
                     <visible>![Stringcompare(Window(home).Property(actualViewtype),Landscape) + [Skin.HasSetting(landscapelogo) | Skin.HasSetting(landscapeonelogo)] + [Container.Content(tvshows) | Container.Content(movies)]]</visible>
-                    <visible>[[Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),Episode) | Stringcompare(Window(home).Property(actualViewtype),Banners) |  [Stringcompare(Window(home).Property(actualViewtype),Panel) + Skin.HasSetting(panellogo)]] + [Container.Content(tvshows) | Container.Content(seasons)] | [Container.Content(tvshows) + Skin.HasSetting(tripanelbanner) + Stringcompare(Window(home).Property(actualViewtype),TriPanel)]]</visible>
+                    <visible>[[Stringcompare(Window(home).Property(actualViewtype),Landscape) | Stringcompare(Window(home).Property(actualViewtype),Shift) | Stringcompare(Window(home).Property(actualViewtype),Wall) | Stringcompare(Window(home).Property(actualViewtype),AddonWall) | Stringcompare(Window(home).Property(actualViewtype),Episode) | Stringcompare(Window(home).Property(actualViewtype),Banners) |  [Stringcompare(Window(home).Property(actualViewtype),Panel) + Skin.HasSetting(panellogo)]] + [Container.Content(tvshows) | Container.Content(seasons)] | [Container.Content(tvshows) + Skin.HasSetting(tripanelbannertv) + Stringcompare(Window(home).Property(actualViewtype),TriPanel)]]</visible>
                 </control>
                 <control type="radiobutton" id="1643">
                     <include>Objects_MediaMenuButtonAlt2</include>
@@ -579,6 +579,13 @@
                     <label>$LOCALIZE[31165]</label>
                     <onclick>Skin.ToggleSetting(slimlist)</onclick>
                     <selected>Skin.HasSetting(slimlist)</selected>
+                    <visible>Stringcompare(Window(home).Property(actualViewtype),List)</visible>
+                </control>
+                <control type="radiobutton" id="1663">
+                    <include>Objects_MediaMenuButtonAlt2</include>
+                    <label>$LOCALIZE[31812]</label>
+                    <onclick>Skin.ToggleSetting(listcdart)</onclick>
+                    <selected>Skin.HasSetting(listcdart)</selected>
                     <visible>Stringcompare(Window(home).Property(actualViewtype),List)</visible>
                 </control>
                 <!--Wall Options-->
