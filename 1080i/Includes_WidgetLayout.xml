@@ -651,9 +651,9 @@
         <height>38</height>
     </include>
     <include name="Furniture_HomeNowPlaying">
-        <control type="group">
+        <control type="group" id="8995">
             <posy>14</posy>
-            <visible>!Window.IsActive(1115)</visible>
+            <visible>!Window.IsActive(1115) + !Window.IsActive(1154)</visible>
             <visible>IsEmpty(Window(home).Property(PanelWidgetInfo)) + IsEmpty(Window(home).Property(PanelWidget2Info))</visible>
             <visible>[IsEmpty(Control.GetLabel(4325)) + !Skin.HasSetting(movenowplayingwidget)] | [IsEmpty(Control.GetLabel(4321)) + Skin.HasSetting(movenowplayingwidget)] | !IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <animation effect="slide" end="0,35" time="400" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
@@ -662,7 +662,7 @@
             <animation effect="slide" end="0,210" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + Skin.HasSetting(lowermainmenu) + Window.IsActive(1158)">Conditional</animation>
             <animation effect="slide" end="0,600" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(movenowplayingwidget) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
             <animation effect="slide" end="0,11" time="400" tween="cubic" easing="inout" condition="[[Skin.HasSetting(totalshomehigh) + !Skin.HasSetting(DisableLibraryStats)] | [Skin.HasSetting(timehomehigh) + !Skin.HasSetting(DisableTimePanel)]] + Window.IsActive(home)">Conditional</animation>
-            <control type="group" id="8995">
+            <control type="group">
                 <posx>22</posx>
                 <posy>-650</posy>
                 <height>1080</height>
@@ -2030,6 +2030,7 @@
                     <onclick condition="!Substring(Control.GetLabel(4321),artist) + !Substring(Control.GetLabel(4321),addons) + !Substring(Control.GetLabel(4321),artists) + !Substring(Control.GetLabel(4321),rss)">$INFO[Container(8000).ListItem.Property(Path)]</onclick>
                     <onclick condition="Substring(Control.GetLabel(4321),addons)">RunAddon($INFO[Container(8000).ListItem.Property(Path)])</onclick>
                     <onclick condition="Substring(Control.GetLabel(4321),rss)">PlayMedia($ESCINFO[Container(8000).ListItem.Property(Media)])</onclick>
+                    <onclick condition="SubString(Control.GetLabel(4321),actor)">RunScript(script.metadata.actors,$INFO[Container(8000).ListItem.Label])</onclick>
                 </control>
                 <control type="button" id="8016">
                     <label>$LOCALIZE[20410]</label>
@@ -2683,7 +2684,8 @@
                         <control type="button" id="5015">
                             <label>$LOCALIZE[208]</label>
                             <include>WidgetMenuLabel</include>
-                            <onclick>$INFO[Container(5010).ListItem.Property(Path)]</onclick>
+                            <onclick condition="!SubString(Control.GetLabel(4321),actor)">$INFO[Container(5010).ListItem.Property(Path)]</onclick>
+                            <onclick condition="SubString(Control.GetLabel(4321),actor)">RunScript(script.metadata.actors,$INFO[Container(5010).ListItem.Label])</onclick>
                         </control>
                         <control type="button" id="5016">
                             <label>$LOCALIZE[20410]</label>
@@ -3717,6 +3719,7 @@
                     <onclick condition="!Substring(Control.GetLabel(4325),artist) + !Substring(Control.GetLabel(4325),addons) + !Substring(Control.GetLabel(4325),artists) + !Substring(Control.GetLabel(4325),rss)">$INFO[Container(7000).ListItem.Property(Path)]</onclick>
                     <onclick condition="Substring(Control.GetLabel(4325),addons)">RunAddon($INFO[Container(7000).ListItem.Property(Path)])</onclick>
                     <onclick condition="Substring(Control.GetLabel(4325),rss)">PlayMedia($ESCINFO[Container(7000).ListItem.Property(Media)])</onclick>
+                    <onclick condition="SubString(Control.GetLabel(4325),actor)">RunScript(script.metadata.actors,$INFO[Container(7000).ListItem.Label])</onclick>
                 </control>
                 <control type="button" id="7016">
                     <label>$LOCALIZE[20410]</label>
@@ -4366,7 +4369,8 @@
                         <control type="button" id="6015">
                             <label>$LOCALIZE[208]</label>
                             <include>WidgetMenuLabel</include>
-                            <onclick>$INFO[Container(6010).ListItem.Property(Path)]</onclick>
+                            <onclick condition="!SubString(Control.GetLabel(4325),actor)">$INFO[Container(6010).ListItem.Property(Path)]</onclick>
+                            <onclick condition="SubString(Control.GetLabel(4325),actor)">RunScript(script.metadata.actors,$INFO[Container(6010).ListItem.Label])</onclick>
                         </control>
                         <control type="button" id="6016">
                             <label>$LOCALIZE[20410]</label>
