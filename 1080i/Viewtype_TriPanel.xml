@@ -5,7 +5,8 @@
             <posy>100</posy>
             <control type="group" id="5201">
                 <posx>1263</posx>
-                <visible>!Skin.HasSetting(SwitchTriPanel)</visible>
+                <visible>[Stringcompare(Skin.String(TriPanelPosition),1) | Stringcompare(Skin.String(TriPanelPosition),3) | IsEmpty(Skin.String(TriPanelPosition))]</visible>
+                <animation effect="slide" end="-5,0" time="400" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
                 <include>Animation_TriPanelRight</include>
                 <visible>Control.IsVisible(52)</visible>
                 <visible>Control.IsVisible(9900)</visible>
@@ -147,7 +148,7 @@
                 <include>Animation_TriPanelMid</include>
                 <visible>!StringCompare(ListItem.Label,..)</visible>
                 <visible>Control.IsVisible(52)</visible>
-                <visible>!Skin.HasSetting(SwitchTriPanel) + !Container.Content(years)</visible>
+                <visible>[Stringcompare(Skin.String(TriPanelPosition),1) | IsEmpty(Skin.String(TriPanelPosition))] + !Container.Content(years)</visible>
                 <control type="image">
                     <texture>views/tripanel/info_panel_glow.png</texture>
                     <posx>15</posx>
@@ -191,7 +192,8 @@
                 <visible>Control.IsVisible(52)</visible>
                 <include>Animation_TriPanelRight</include>
                 <visible>!StringCompare(ListItem.Label,..)</visible>
-                <visible>Skin.HasSetting(SwitchTriPanel) + !Container.Content(years)</visible>
+                <animation effect="slide" end="-1320,0" time="400" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
+                <visible>[Stringcompare(Skin.String(TriPanelPosition),2) | Stringcompare(Skin.String(TriPanelPosition),3)] + !Container.Content(years)</visible>
                 <animation effect="slide" end="-500,0" time="800" easing="inout" tween="circle" condition="IsEmpty(Container.FolderPath)">Conditional</animation>
                 <control type="image">
                     <texture>views/tripanel/info_panel_glow.png</texture>
@@ -226,13 +228,21 @@
                     <height>903</height>
                     <texture>views/tripanel/poster_overlay.png</texture>
                     <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                    <visible>!Stringcompare(Skin.String(TriPanelPosition),3)</visible>
+                </control>
+                <control type="image">
+                    <width>590</width>
+                    <height>903</height>
+                    <texture flipx="true">views/tripanel/poster_overlay.png</texture>
+                <visible>Stringcompare(Skin.String(TriPanelPosition),3)</visible>
+                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                 </control>
             </control>
             <control type="group" id="5204">
                 <posx>817</posx>
                 <include>Animation_TriPanelMid</include>
                 <visible>Control.IsVisible(52)</visible>
-                <visible>Skin.HasSetting(SwitchTriPanel)</visible>
+                <visible>Stringcompare(Skin.String(TriPanelPosition),2)</visible>
                 <visible>Control.IsVisible(9900)</visible>
                 <control type="image">
                     <texture>views/tripanel/info_panel_glow.png</texture>
@@ -371,8 +381,9 @@
                 </control>
             </control>
             <control type="group">
-                <animation effect="slide" time="700" start="-1275,0" end="0,0" tween="cubic">WindowOpen</animation>
-                <animation effect="slide" time="300" end="-1275,0" tween="cubic" easing="in" delay="150">WindowClose</animation>
+                <animation effect="slide" end="485,0" time="400" tween="cubic" easing="inout" condition="Stringcompare(Skin.String(TriPanelPosition),3)">Conditional</animation>
+                <animation effect="slide" time="700" start="-1375,0" end="0,0" tween="cubic">WindowOpen</animation>
+                <animation effect="slide" time="300" end="-1375,0" tween="cubic" easing="in" delay="150">WindowClose</animation>
                 <visible>Control.IsVisible(52)</visible>
                 <animation effect="slide" time="700" start="-1275,0" end="0,0" tween="cubic">VisibleChange</animation>
                 <animation effect="fade" time="200" start="100" end="0">Hidden</animation>
@@ -715,7 +726,7 @@
                         </control>
                         <control type="image">
                             <posx>49</posx>
-                            <posy>55</posy>
+                            <posy>46</posy>
                             <width>40</width>
                             <height>40</height>
                             <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
@@ -791,8 +802,8 @@
                             <visible>!Container.Content(albums)</visible>
                         </control>
                         <control type="image">
-                            <posx>51</posx>
-                            <posy>55</posy>
+                            <posx>49</posx>
+                            <posy>46</posy>
                             <width>40</width>
                             <height>40</height>
                             <texture>$VAR[WatchedIconVar]</texture>
