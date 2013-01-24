@@ -39,7 +39,7 @@
                 <height>60</height>
                 <font>Font_Bold19</font>
                 <disabledcolor>white2</disabledcolor>
-                <label>31700</label>
+                <label>42300</label>
                 <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
                 <texturenofocus>dialogs/context_nofocus.png</texturenofocus>
                 <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
@@ -126,7 +126,9 @@
             <!-- MikeBZH44 End -->
             <control type="button">
                 <posx>347</posx>
+                <!-- MikeBZH44 Start -->
                 <posy>420</posy>
+                <!-- MikeBZH44 End -->
                 <width>1200</width>
                 <height>60</height>
                 <font>Font_Bold19</font>
@@ -143,7 +145,9 @@
             </control>
             <control type="panel" id="4">
                 <posx>347</posx>
+                <!-- MikeBZH44 Start -->
                 <posy>480</posy>
+                <!-- MikeBZH44 End -->
                 <width>1200</width>
                 <height>900</height>
                 <aligny>center</aligny>
@@ -264,7 +268,7 @@
                         <visible>Library.HasContent(music) + Stringcompare(Window(Home).Property(LiveCasesType),CDs)</visible>
                     </item>
                     <item>
-                        <label>31817</label>
+                        <label>42217</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocaseartists)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>Library.HasContent(music) + Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
@@ -288,19 +292,19 @@
                         <visible>Library.HasContent(tvshows) + Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
                     </item>
                     <item>
-                        <label>31816</label>
+                        <label>42216</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocaserandompics)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>System.HasAddon(plugin.image.mypicsdb) + Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
                     </item>
                     <item>
-                        <label>31815</label>
+                        <label>42215</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocaserecentpics)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>System.HasAddon(plugin.image.mypicsdb) + Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>
                     </item>
                     <item>
-                        <label>31820</label>
+                        <label>42220</label>
                         <onclick>Skin.SetString(ItemToEdit.MultiFanart,nocasedailybabes)</onclick>
                         <onclick>Dialog.Close(1155)</onclick>
                         <visible>Stringcompare(Window(Home).Property(LiveCasesType),Pics)</visible>

@@ -49,8 +49,8 @@
                 <label>$INFO[Window(Home).Property(Movies.Count),[COLOR grey]$LOCALIZE[31502]:[/COLOR] ,[COLOR grey]  •  $LOCALIZE[16102]:[/COLOR] ]$INFO[Window(Home).Property(Movies.Watched),,[COLOR grey]  •  $LOCALIZE[16101]:[/COLOR] ]$INFO[Window(Home).Property(Movies.UnWatched)]</label>
                 <label>[COLOR grey]$LOCALIZE[20343]:[/COLOR] $INFO[Window(Home).Property(TVShows.Count)][COLOR grey]  •  $LOCALIZE[20360]:[/COLOR] $INFO[Window(Home).Property(Episodes.Count)][COLOR grey]  •  $LOCALIZE[16101]:[/COLOR] $INFO[Window(Home).Property(Episodes.UnWatched)]</label>
                 <label>[COLOR grey]$LOCALIZE[133]:[/COLOR] $INFO[Window(Home).Property(Music.ArtistsCount)][COLOR grey]  •  $LOCALIZE[132]:[/COLOR] $INFO[Window(Home).Property(Music.AlbumsCount)][COLOR grey]  •  $LOCALIZE[134]:[/COLOR] $INFO[Window(Home).Property(Music.SongsCount)]</label>
-                <label>$INFO[Window(Home).Property(MyPicsDBRandom.Categories),[COLOR grey]$LOCALIZE[31892]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBRandom.Collections),[COLOR grey]  •  $LOCALIZE[31890]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBRandom.Folders),[COLOR grey]  •  $LOCALIZE[31891]:[/COLOR] ]</label>
-                <label>$INFO[Window(Home).Property(MyPicsDBLatest.Categories),[COLOR grey]$LOCALIZE[31892]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBLatest.Collections),[COLOR grey]  •  $LOCALIZE[31890]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBLatest.Folders),[COLOR grey]  •  $LOCALIZE[31891]:[/COLOR] ]</label>
+                <label>$INFO[Window(Home).Property(MyPicsDBRandom.Categories),[COLOR grey]$LOCALIZE[42292]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBRandom.Collections),[COLOR grey]  •  $LOCALIZE[42290]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBRandom.Folders),[COLOR grey]  •  $LOCALIZE[42291]:[/COLOR] ]</label>
+                <label>$INFO[Window(Home).Property(MyPicsDBLatest.Categories),[COLOR grey]$LOCALIZE[42292]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBLatest.Collections),[COLOR grey]  •  $LOCALIZE[42290]:[/COLOR] ]$INFO[Window(Home).Property(MyPicsDBLatest.Folders),[COLOR grey]  •  $LOCALIZE[42291]:[/COLOR] ]</label>
                 <label>$INFO[PVR.NowRecordingDateTime,$LOCALIZE[19158]  [B][COLOR=white], [/COLOR][/B]$LOCALIZE[19126] - ]$INFO[PVR.NowRecordingTitle, • [B][COLOR=FF48D1CC],[/COLOR][/B] ]$INFO[PVR.NowRecordingChannel,[B][COLOR=white]( ,)[/COLOR][/B]]</label>
                 <label>$INFO[PVR.NextRecordingDateTime,$LOCALIZE[19157]  [B][COLOR=white], [/COLOR][/B]$LOCALIZE[19126] -  • ]$INFO[PVR.NextRecordingTitle, [B][COLOR=white],[/COLOR][/B]]$INFO[PVR.NextRecordingChannel, - [B][COLOR=white],[/COLOR][/B]]</label>
                 <label>$INFO[Window(Weather).Property(Location),[COLOR grey], • $LOCALIZE[402]: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike)] $INFO[System.TemperatureUnits,,[COLOR grey] • $LOCALIZE[406]:[/COLOR] ]$INFO[Window(weather).Property(Current.Humidity)]</label>
@@ -474,7 +474,7 @@
                 <control type="group">
                     <animation effect="slide" start="-150" end="0" time="700" tween="cubic" delay="400">WindowOpen</animation>
                     <animation type="WindowClose">
-                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" />
+                        <effect type="slide" end="-180" time="400" tween="cubic" easing="in" delay="0" />
                         <effect type="fade" start="100" end="0" time="0" delay="400" />
                         <condition type="!Player.Playing" />
                     </animation>
@@ -653,7 +653,7 @@
     <include name="Furniture_HomeNowPlaying">
         <control type="group">
             <posy>14</posy>
-            <visible>!Window.IsActive(1115) + !Window.IsActive(1154)</visible>
+            <visible>!Window.IsActive(1115)</visible>
             <visible>IsEmpty(Window(home).Property(PanelWidgetInfo)) + IsEmpty(Window(home).Property(PanelWidget2Info))</visible>
             <visible>[IsEmpty(Control.GetLabel(4325)) + !Skin.HasSetting(movenowplayingwidget)] | [IsEmpty(Control.GetLabel(4321)) + Skin.HasSetting(movenowplayingwidget)] | !IsEmpty(Window(home).Property(DisableWidgets))</visible>
             <animation effect="slide" end="0,35" time="400" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
@@ -929,6 +929,16 @@
                 <posx>75</posx>
                 <control type="group">
                     <include>weatherwidgetback</include>
+                    <control type="multiimage">
+                        <width>284</width>
+                        <height>394</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <imagepath diffuse="home/weather_diffuse.png">$INFO[Window(weather).Property(Current.FanartCode),special://home/addons/weather.fanart.pda.style/media/]</imagepath>
+                        <timeperimage>100</timeperimage>
+                        <randomize>false</randomize>
+                        <fadetime>0</fadetime>
+                        <visible>Substring(Control.GetLabel(4321),pda)</visible>
+                    </control>
                     <control type="label">
                         <posy>310</posy>
                         <width>284</width>
@@ -937,6 +947,7 @@
                         <label>31374</label>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>38</posx>
@@ -947,6 +958,7 @@
                         <font>Font_Info</font>
                         <scroll>true</scroll>
                         <align>center</align>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="image">
                         <posx>82</posx>
@@ -955,6 +967,7 @@
                         <width>120</width>
                         <info>Window(weather).Property(Current.ConditionIcon)</info>
                         <aspectratio align="center">keep</aspectratio>
+                        <visible>!Substring(Control.GetLabel(4321),pda)</visible>
                     </control>
                     <control type="label">
                         <posy>225</posy>
@@ -963,6 +976,7 @@
                         <font>Font_Bold35</font>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
                         <label>$INFO[Window(weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits]</label>
                     </control>
@@ -972,6 +986,16 @@
                 <posx>450</posx>
                 <control type="group">
                     <include>weatherwidgetback</include>
+                    <control type="multiimage">
+                        <width>284</width>
+                        <height>394</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <imagepath diffuse="home/weather_diffuse.png">$INFO[Window(Weather).Property(Day0.FanartCode),special://home/addons/weather.fanart.pda.style/media/]</imagepath>
+                        <timeperimage>100</timeperimage>
+                        <randomize>false</randomize>
+                        <fadetime>0</fadetime>
+                        <visible>Substring(Control.GetLabel(4321),pda)</visible>
+                    </control>
                     <control type="label">
                         <posy>310</posy>
                         <width>284</width>
@@ -980,6 +1004,7 @@
                         <info>Window(weather).Property(Day0.Title)</info>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>38</posx>
@@ -990,6 +1015,7 @@
                         <font>Font_Info</font>
                         <scroll>true</scroll>
                         <align>center</align>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="image">
                         <posx>82</posx>
@@ -998,6 +1024,7 @@
                         <width>120</width>
                         <info>Window(weather).Property(Day0.OutlookIcon)</info>
                         <aspectratio align="center">keep</aspectratio>
+                        <visible>!Substring(Control.GetLabel(4321),pda)</visible>
                     </control>
                     <control type="label">
                         <posx>140</posx>
@@ -1008,6 +1035,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[419] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1016,6 +1044,7 @@
                         <width>142</width>
                         <font>Font_Reg19</font>
                         <textcolor>red</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
                         <label>$INFO[Window(weather).Property(Day0.HighTemp)] $INFO[System.TemperatureUnits]</label>
                     </control>
@@ -1028,6 +1057,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[418] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1037,6 +1067,7 @@
                         <label>$INFO[Window(weather).Property(Day0.LowTemp)] $INFO[System.TemperatureUnits]</label>
                         <font>Font_Reg19</font>
                         <textcolor>blue</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day0.LowTemp))</visible>
                     </control>
                 </control>
@@ -1045,6 +1076,16 @@
                 <posx>825</posx>
                 <control type="group">
                     <include>weatherwidgetback</include>
+                    <control type="multiimage">
+                        <width>284</width>
+                        <height>394</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <imagepath diffuse="home/weather_diffuse.png">$INFO[Window(Weather).Property(Day1.FanartCode),special://home/addons/weather.fanart.pda.style/media/]</imagepath>
+                        <timeperimage>100</timeperimage>
+                        <randomize>false</randomize>
+                        <fadetime>0</fadetime>
+                        <visible>Substring(Control.GetLabel(4321),pda)</visible>
+                    </control>
                     <control type="label">
                         <posy>310</posy>
                         <width>284</width>
@@ -1053,6 +1094,7 @@
                         <info>Window(weather).Property(Day1.Title)</info>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>38</posx>
@@ -1063,6 +1105,7 @@
                         <font>Font_Info</font>
                         <scroll>true</scroll>
                         <align>center</align>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="image">
                         <posx>82</posx>
@@ -1071,6 +1114,7 @@
                         <width>120</width>
                         <info>Window(weather).Property(Day1.OutlookIcon)</info>
                         <aspectratio align="center">keep</aspectratio>
+                        <visible>!Substring(Control.GetLabel(4321),pda)</visible>
                     </control>
                     <control type="label">
                         <posx>140</posx>
@@ -1081,6 +1125,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[419] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1089,6 +1134,7 @@
                         <width>142</width>
                         <font>Font_Reg19</font>
                         <textcolor>red</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day1.HighTemp))</visible>
                         <label>$INFO[Window(weather).Property(Day1.HighTemp)] $INFO[System.TemperatureUnits]</label>
                     </control>
@@ -1101,6 +1147,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[418] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1110,6 +1157,7 @@
                         <label>$INFO[Window(weather).Property(Day1.LowTemp)] $INFO[System.TemperatureUnits]</label>
                         <font>Font_Reg19</font>
                         <textcolor>blue</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day1.LowTemp))</visible>
                     </control>
                 </control>
@@ -1118,6 +1166,16 @@
                 <posx>1200</posx>
                 <control type="group">
                     <include>weatherwidgetback</include>
+                    <control type="multiimage">
+                        <width>284</width>
+                        <height>394</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <imagepath diffuse="home/weather_diffuse.png">$INFO[Window(Weather).Property(Day2.FanartCode),special://home/addons/weather.fanart.pda.style/media/]</imagepath>
+                        <timeperimage>100</timeperimage>
+                        <randomize>false</randomize>
+                        <fadetime>0</fadetime>
+                        <visible>Substring(Control.GetLabel(4321),pda)</visible>
+                    </control>
                     <control type="label">
                         <posy>310</posy>
                         <width>284</width>
@@ -1126,6 +1184,7 @@
                         <info>Window(weather).Property(Day2.Title)</info>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>38</posx>
@@ -1136,6 +1195,7 @@
                         <font>Font_Info</font>
                         <scroll>true</scroll>
                         <align>center</align>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="image">
                         <posx>82</posx>
@@ -1144,6 +1204,7 @@
                         <width>120</width>
                         <info>Window(weather).Property(Day2.OutlookIcon)</info>
                         <aspectratio align="center">keep</aspectratio>
+                        <visible>!Substring(Control.GetLabel(4321),pda)</visible>
                     </control>
                     <control type="label">
                         <posx>140</posx>
@@ -1154,6 +1215,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[419] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1162,6 +1224,7 @@
                         <width>142</width>
                         <font>Font_Reg19</font>
                         <textcolor>red</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day2.HighTemp))</visible>
                         <label>$INFO[Window(weather).Property(Day2.HighTemp)] $INFO[System.TemperatureUnits]</label>
                     </control>
@@ -1174,6 +1237,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[418] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1183,6 +1247,7 @@
                         <label>$INFO[Window(weather).Property(Day2.LowTemp)] $INFO[System.TemperatureUnits]</label>
                         <font>Font_Reg19</font>
                         <textcolor>blue</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day2.LowTemp))</visible>
                     </control>
                 </control>
@@ -1191,6 +1256,16 @@
                 <posx>1575</posx>
                 <control type="group">
                     <include>weatherwidgetback</include>
+                    <control type="multiimage">
+                        <width>284</width>
+                        <height>394</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <imagepath diffuse="home/weather_diffuse.png">$INFO[Window(Weather).Property(Day3.FanartCode),special://home/addons/weather.fanart.pda.style/media/]</imagepath>
+                        <timeperimage>100</timeperimage>
+                        <randomize>false</randomize>
+                        <fadetime>0</fadetime>
+                        <visible>Substring(Control.GetLabel(4321),pda)</visible>
+                    </control>
                     <control type="label">
                         <posy>310</posy>
                         <width>284</width>
@@ -1199,6 +1274,7 @@
                         <info>Window(weather).Property(Day3.Title)</info>
                         <align>center</align>
                         <textcolor>$VAR[HomeMenuWidgetTextVar]</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>38</posx>
@@ -1209,6 +1285,7 @@
                         <font>Font_Info</font>
                         <scroll>true</scroll>
                         <align>center</align>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="image">
                         <posx>82</posx>
@@ -1217,6 +1294,7 @@
                         <width>120</width>
                         <info>Window(weather).Property(Day3.OutlookIcon)</info>
                         <aspectratio align="center">keep</aspectratio>
+                        <visible>!Substring(Control.GetLabel(4321),pda)</visible>
                     </control>
                     <control type="label">
                         <posx>140</posx>
@@ -1227,6 +1305,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[419] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1235,6 +1314,7 @@
                         <width>142</width>
                         <font>Font_Reg19</font>
                         <textcolor>red</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day3.HighTemp))</visible>
                         <label>$INFO[Window(weather).Property(Day3.HighTemp)] $INFO[System.TemperatureUnits]</label>
                     </control>
@@ -1247,6 +1327,7 @@
                         <align>right</align>
                         <label>$LOCALIZE[418] :</label>
                         <textcolor>grey2</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                     </control>
                     <control type="label">
                         <posx>150</posx>
@@ -1256,6 +1337,7 @@
                         <label>$INFO[Window(weather).Property(Day3.LowTemp)] $INFO[System.TemperatureUnits]</label>
                         <font>Font_Reg19</font>
                         <textcolor>blue</textcolor>
+                        <shadowcolor>$VAR[WeatherShadowVar]</shadowcolor>
                         <visible>!IsEmpty(Window(weather).Property(Day3.LowTemp))</visible>
                     </control>
                 </control>
@@ -1448,7 +1530,7 @@
                         <height>240</height>
                         <animation effect="fade" time="300">Visible</animation>
                         <animation effect="fade" time="50">Hidden</animation>
-                        <visible>Substring(Control.GetLabel(4321),addons) | Substring(Control.GetLabel(4321),albums) | Substring(Control.GetLabel(4321),artists) | Substring(Control.GetLabel(4321),actor) | Substring(Control.GetLabel(4321),pics) | Substring(Control.GetLabel(4321),roms)</visible>
+                        <visible>Substring(Control.GetLabel(4321),addons) | Substring(Control.GetLabel(4321),Icon) | Substring(Control.GetLabel(4321),albums) | Substring(Control.GetLabel(4321),artists) | Substring(Control.GetLabel(4321),actor) | Substring(Control.GetLabel(4321),pics) | Substring(Control.GetLabel(4321),roms)</visible>
                     </control>
                     <control type="image">
                         <texture background="true" fallback="special://skin/backgrounds/videos/videos.jpg">$VAR[ClassicWidgetImageVar]</texture>
@@ -1522,6 +1604,7 @@
                         <posx>38</posx>
                         <width>1920</width>
                         <height>45</height>
+                        <aligny>left</aligny>
                         <posy>50</posy>
                         <itemgap>40</itemgap>
                         <orientation>horizontal</orientation>
@@ -1529,21 +1612,21 @@
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[345]: [/COLOR]$INFO[Container(8000).ListItem.Property(Year)]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[345] : [/COLOR]$INFO[Container(8000).ListItem.Property(Year)]</label>
                             <font>Font_Reg20</font>
                         </control>
                         <control type="label">
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[31095]: [/COLOR]$INFO[Container(8000).ListItem.Property(Rating)]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[31095] : [/COLOR]$INFO[Container(8000).ListItem.Property(Rating)]</label>
                             <font>Font_Reg20</font>
                         </control>
                         <control type="label">
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[2050]: [/COLOR] $INFO[Container(8000).ListItem.Property(RunningTime),, $LOCALIZE[12391]]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[2050] : [/COLOR] $INFO[Container(8000).ListItem.Property(RunningTime),, $LOCALIZE[12391]]</label>
                             <font>Font_Reg20</font>
                         </control>
                     </control>
@@ -1594,6 +1677,7 @@
                     <fadetime>IconCrossfadeTime</fadetime>
                     <texture diffuse="thumbs/thumb_mask.png" background="true" fallback="DefaultVideoBigPoster.png">$INFO[Container(8000).ListItem.Property(Poster)]</texture>
                     <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <visible>Stringcompare(Skin.String(LiveBGCase),tvshows) | Stringcompare(Skin.String(LiveBGCase),movies)</visible>
                 </control>
                 <!-- MikeBZH44 End -->
                 <control type="image">
@@ -1668,6 +1752,7 @@
                         <posx>38</posx>
                         <width>800</width>
                         <height>38</height>
+                        <aligny>left</aligny>
                         <posy>49</posy>
                         <textcolor>grey</textcolor>
                         <label>$INFO[Container(8000).ListItem.Property(EpisodeNumber)]</label>
@@ -1729,10 +1814,152 @@
                     <height>287</height>
                 </control>
             </control>
-            <!--Focused Random/Latest Music/Add-on-->
+            <!--Focused Random/Latest Music/Artists-->
+            <!-- MikeBZH44 Start : Add CD case for Artists and Albums -->
             <control type="group">
                 <visible>Control.HasFocus(8000)</visible>
-                <visible>Substring(Control.GetLabel(4321),artists) | Substring(Control.GetLabel(4321),album) | Substring(Control.GetLabel(4321),addons) | Substring(Control.GetLabel(4321),pics) | Substring(Control.GetLabel(4321),Icon)</visible>
+                <visible>Substring(Control.GetLabel(4321),artists) | Substring(Control.GetLabel(4321),album)</visible>
+                <posx>-3050</posx>
+                <posy>-10</posy>
+                <animation effect="slide" end="1530,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(8000)">Conditional</animation>
+                <control type="image">
+                    <posx>29</posx>
+                    <posy>12</posy>
+                    <width>388</width>
+                    <height>388</height>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <texture>thumbs/boxes/cd_shadow_light_shadow.png</texture>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                    <include>PanelGlowFade</include>
+                </control>
+                <control type="group">
+                    <posx>430</posx>
+                    <posy>-20</posy>
+                    <control type="label">
+                        <posy>68</posy>
+                        <width>800</width>
+                        <height>38</height>
+                        <font>Font_Reg24_Caps</font>
+                        <label>$INFO[Container(8000).ListItem.Label2]</label>
+                    </control>
+                    <control type="label">
+                        <posy>330</posy>
+                        <width>900</width>
+                        <height>38</height>
+                        <font>Font_Reg22_Caps</font>
+                        <textcolor>white3</textcolor>
+                        <label>$INFO[Container(8000).ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <posy>120</posy>
+                        <width>800</width>
+                        <height>150</height>
+                        <font>Font_Reg20_Caps</font>
+                        <textcolor>white3</textcolor>
+                        <wrapmultiline>true</wrapmultiline>
+                        <label fallback="-">$INFO[Container(8000).ListItem.Property(Year)]</label>
+                    </control>
+                    <control type="textbox">
+                        <posy>120</posy>
+                        <width>688</width>
+                        <height>150</height>
+                        <textcolor>white3</textcolor>
+                        <aligny>top</aligny>
+                        <label fallback="-">$INFO[Container(8000).ListItem.Property(Description)]</label>
+                    </control>
+                </control>
+                <control type="image">
+                    <posx>392</posx>
+                    <posy>99</posy>
+                    <height>264</height>
+                    <width>388</width>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <texture>home/nowplaying_info.png</texture>
+                </control>
+                <!-- MikeBZH44 Start -->
+                <!-- Clear back case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_shadow_light.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),clear)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
+                <control type="image">
+                    <texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$INFO[Container(8000).ListItem.Icon]</texture>
+                    <!-- MikeBZH44 Start : scale -> stretch -->
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <!-- MikeBZH44 End -->
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+                <!-- MikeBZH44 Start -->
+                <!-- No diffuse for CD case -->
+                <control type="image">
+                    <texture background="true" fallback="DefaultAlbumCover.png">$INFO[Container(8000).ListItem.Icon]</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+                <!-- CD Case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_box_closed.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
+                </control>
+                <!-- Clear Case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_glass.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),clear)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+                    <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>Stringcompare(Skin.String(CDCase),none)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+            </control>
+            <!-- MikeBZH44 End -->
+            <!--Focused Random/Latest Add-on/Pics-->
+            <control type="group">
+                <visible>Control.HasFocus(8000)</visible>
+                <!-- MikeBZH44 Start : Remove Artists and Albums for a dedicated group -->
+                <visible>Substring(Control.GetLabel(4321),addons) | Substring(Control.GetLabel(4321),pics) | Substring(Control.GetLabel(4321),Icon)</visible>
+                <!-- MikeBZH44 End -->
                 <posx>-3050</posx>
                 <posy>-10</posy>
                 <animation effect="slide" end="1530,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(8000)">Conditional</animation>
@@ -1973,6 +2200,9 @@
                         <include condition="Substring(Skin.String(widgetlist),rss3classic)">RSS3WidgetContent</include>
                         <include condition="Substring(Skin.String(widgetlist),nextairedtvclassic)">NextAiredWidgetContent1124</include>
                         <include condition="Substring(Skin.String(widgetlist),nextairedtvclassic)">NextAiredWidgetContent</include>
+                        <include condition="Substring(Skin.String(widgetlist),Icon1classic)">IconPanel1Items</include>
+                        <include condition="Substring(Skin.String(widgetlist),Icon2classic)">IconPanel2Items</include>
+                        <include condition="Substring(Skin.String(widgetlist),favouriteIconclassic)">FavouritesItems</include>
                     </content>
                 </control>
             </control>
@@ -2030,7 +2260,6 @@
                     <onclick condition="!Substring(Control.GetLabel(4321),artist) + !Substring(Control.GetLabel(4321),addons) + !Substring(Control.GetLabel(4321),artists) + !Substring(Control.GetLabel(4321),rss)">$INFO[Container(8000).ListItem.Property(Path)]</onclick>
                     <onclick condition="Substring(Control.GetLabel(4321),addons)">RunAddon($INFO[Container(8000).ListItem.Property(Path)])</onclick>
                     <onclick condition="Substring(Control.GetLabel(4321),rss)">PlayMedia($ESCINFO[Container(8000).ListItem.Property(Media)])</onclick>
-                    <onclick condition="SubString(Control.GetLabel(4321),actor)">RunScript(script.metadata.actors,$INFO[Container(8000).ListItem.Label])</onclick>
                 </control>
                 <control type="button" id="8016">
                     <label>$LOCALIZE[20410]</label>
@@ -2684,8 +2913,7 @@
                         <control type="button" id="5015">
                             <label>$LOCALIZE[208]</label>
                             <include>WidgetMenuLabel</include>
-                            <onclick condition="!SubString(Control.GetLabel(4321),actor)">$INFO[Container(5010).ListItem.Property(Path)]</onclick>
-                            <onclick condition="SubString(Control.GetLabel(4321),actor)">RunScript(script.metadata.actors,$INFO[Container(5010).ListItem.Label])</onclick>
+                            <onclick>$INFO[Container(5010).ListItem.Property(Path)]</onclick>
                         </control>
                         <control type="button" id="5016">
                             <label>$LOCALIZE[20410]</label>
@@ -2820,7 +3048,7 @@
                             <textcolor>white6</textcolor>
                             <pagecontrol>5019</pagecontrol>
                             <label>$INFO[Container(5010).ListItem.Property(Plot)]</label>
-                            <autoscroll delay="5000" time="2000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+                            <autoscroll delay="5000" time="AutoScrollTime" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
                             <visible>IsEmpty(Container(5010).ListItem.Property(Discart)) + !Substring(Control.GetLabel(4321),tv)</visible>
                         </control>
                         <control type="textbox" id="5060">
@@ -3236,6 +3464,7 @@
                         <posx>38</posx>
                         <width>1920</width>
                         <height>45</height>
+                        <aligny>left</aligny>
                         <posy>50</posy>
                         <itemgap>40</itemgap>
                         <orientation>horizontal</orientation>
@@ -3243,21 +3472,21 @@
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[345]: [/COLOR]$INFO[Container(7000).ListItem.Property(Year)]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[345] : [/COLOR]$INFO[Container(7000).ListItem.Property(Year)]</label>
                             <font>Font_Reg20</font>
                         </control>
                         <control type="label">
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[31095]: [/COLOR]$INFO[Container(7000).ListItem.Property(Rating)]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[31095] : [/COLOR]$INFO[Container(7000).ListItem.Property(Rating)]</label>
                             <font>Font_Reg20</font>
                         </control>
                         <control type="label">
                             <width min="100" max="800">auto</width>
                             <height>45</height>
                             <textcolor>white6</textcolor>
-                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[2050]: [/COLOR] $INFO[Container(7000).ListItem.Property(RunningTime),, $LOCALIZE[12391]]</label>
+                            <label>[COLOR=$VAR[HomeMenuWidgetTextVar]]$LOCALIZE[2050] : [/COLOR] $INFO[Container(7000).ListItem.Property(RunningTime),, $LOCALIZE[12391]]</label>
                             <font>Font_Reg20</font>
                         </control>
                     </control>
@@ -3297,7 +3526,20 @@
                     <fadetime>IconCrossfadeTime</fadetime>
                     <texture diffuse="thumbs/movieposter_mask.png" background="true" fallback="DefaultVideoBigPoster.png">$INFO[Container(7000).ListItem.Property(Poster)]</texture>
                     <aspectratio scalediffuse="false">scale</aspectratio>
+                    <!-- MikeBZH44 Start -->
+                    <visible>![Stringcompare(Skin.String(LiveBGCase),tvshows) | Stringcompare(Skin.String(LiveBGCase),movies)]</visible>
+                    <!-- MikeBZH44 End -->
                 </control>
+                <!-- MikeBZH44 Start : Use different diffuse template -->
+                <control type="image">
+                    <width>260</width>
+                    <height>390</height>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <texture diffuse="thumbs/thumb_mask.png" background="true" fallback="DefaultVideoBigPoster.png">$INFO[Container(7000).ListItem.Property(Poster)]</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <visible>Stringcompare(Skin.String(LiveBGCase),tvshows) | Stringcompare(Skin.String(LiveBGCase),movies)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
                 <control type="image">
                     <posx>-19.5</posx>
                     <posy>-19.5</posy>
@@ -3307,7 +3549,21 @@
                     <texture diffuse="thumbs/movieposter_mask.png">thumbs/thumb_glass_noreflect.png</texture>
                     <bordertexture border="19.5">thumbs/poster_shadow.png</bordertexture>
                     <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <!-- MikeBZH44 Start -->
+                    <visible>![Stringcompare(Skin.String(LiveBGCase),tvshows) | Stringcompare(Skin.String(LiveBGCase),movies)]</visible>
+                    <!-- MikeBZH44 End -->
                 </control>
+                <!-- MikeBZH44 Start : Add resolution case -->
+                <control type="image">
+                    <posx>-47</posx>
+                    <posy>-33</posy>
+                    <width>325</width>
+                    <height>440</height>
+                    <texture>thumbs/boxes/$INFO[Skin.String(LiveBGCase)]/$INFO[Container(7000).ListItem.Property(VideoResolution)]p.png</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <visible>Stringcompare(Skin.String(LiveBGCase),tvshows) | Stringcompare(Skin.String(LiveBGCase),movies)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
             </control>
             <!--Focused Random/Latest Episodes-->
             <control type="group">
@@ -3356,6 +3612,7 @@
                         <posx>38</posx>
                         <width>800</width>
                         <height>38</height>
+                        <aligny>left</aligny>
                         <posy>49</posy>
                         <textcolor>grey</textcolor>
                         <label>$INFO[Container(7000).ListItem.Property(EpisodeNumber)]</label>
@@ -3418,10 +3675,149 @@
                     <fadetime>IconCrossfadeTime</fadetime>
                 </control>
             </control>
-            <!--Focused Random/Latest Music/Add-on-->
+            <!--Focused Random/Latest Music/Artists-->
             <control type="group">
                 <visible>Control.HasFocus(7000)</visible>
-                <visible>Substring(Control.GetLabel(4325),artists) | Substring(Control.GetLabel(4325),album) | Substring(Control.GetLabel(4325),addons) | Substring(Control.GetLabel(4325),pics) | Substring(Control.GetLabel(4325),Icon)</visible>
+                <visible>Substring(Control.GetLabel(4325),artists) | Substring(Control.GetLabel(4325),album)</visible>
+                <posx>-3050</posx>
+                <posy>-16</posy>
+                <animation effect="slide" end="1530,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(7000)">Conditional</animation>
+                <control type="image">
+                    <posx>29</posx>
+                    <posy>12</posy>
+                    <width>388</width>
+                    <height>388</height>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <texture>thumbs/boxes/cd_shadow_light_shadow.png</texture>
+                    <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                    <include>PanelGlowFade</include>
+                </control>
+                <control type="group">
+                    <posx>430</posx>
+                    <posy>-20</posy>
+                    <control type="label">
+                        <posy>68</posy>
+                        <width>800</width>
+                        <height>38</height>
+                        <font>Font_Reg24_Caps</font>
+                        <label>$INFO[Container(7000).ListItem.Label2]</label>
+                    </control>
+                    <control type="label">
+                        <posy>330</posy>
+                        <width>900</width>
+                        <height>38</height>
+                        <font>Font_Reg22_Caps</font>
+                        <textcolor>white3</textcolor>
+                        <label>$INFO[Container(7000).ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <posy>120</posy>
+                        <width>800</width>
+                        <height>150</height>
+                        <font>Font_Reg20_Caps</font>
+                        <textcolor>white3</textcolor>
+                        <wrapmultiline>true</wrapmultiline>
+                        <label fallback="-">$INFO[Container(7000).ListItem.Property(Year)]</label>
+                    </control>
+                    <control type="textbox">
+                        <posy>120</posy>
+                        <width>688</width>
+                        <height>150</height>
+                        <textcolor>white3</textcolor>
+                        <aligny>top</aligny>
+                        <label fallback="-">$INFO[Container(7000).ListItem.Property(Description)]</label>
+                    </control>
+                </control>
+                <control type="image">
+                    <posx>392</posx>
+                    <posy>99</posy>
+                    <height>264</height>
+                    <width>388</width>
+                    <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    <texture>home/nowplaying_info.png</texture>
+                </control>
+                <!-- MikeBZH44 Start -->
+                <!-- Clear back case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_shadow_light.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),clear)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
+                <control type="image">
+                    <texture background="true" diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$INFO[Container(7000).ListItem.Icon]</texture>
+                    <!-- MikeBZH44 Start : scale -> stretch -->
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <!-- MikeBZH44 End -->
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+                <!-- MikeBZH44 Start -->
+                <!-- No diffuse for CD case -->
+                <control type="image">
+                    <texture background="true" fallback="DefaultAlbumCover.png">$INFO[Container(7000).ListItem.Icon]</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+                <!-- CD Case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_box_closed.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
+                </control>
+                <!-- Clear Case -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture>thumbs/boxes/cd_glass.png</texture>
+                    <posx>-18</posx>
+                    <posy>0</posy>
+                    <height>410</height>
+                    <width>446</width>
+                    <visible>Stringcompare(Skin.String(CDCase),clear)</visible>
+                </control>
+                <!-- MikeBZH44 End -->
+                <control type="image">
+                    <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                    <texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+                    <bordertexture border="20">thumbs/cd_shadow.png</bordertexture>
+                    <bordersize>20</bordersize>
+                    <posx>22</posx>
+                    <posy>1</posy>
+                    <height>403</height>
+                    <width>403</width>
+                    <!-- MikeBZH44 Start -->
+                    <visible>Stringcompare(Skin.String(CDCase),none)</visible>
+                    <!-- MikeBZH44 End -->
+                </control>
+            </control>
+            <!-- MikeBZH44 End -->
+            <!--Focused Random/Latest Add-on/Pics-->
+            <control type="group">
+                <visible>Control.HasFocus(7000)</visible>
+                <visible>Substring(Control.GetLabel(4325),addons) | Substring(Control.GetLabel(4325),pics) | Substring(Control.GetLabel(4325),Icon)</visible>
                 <posx>-3050</posx>
                 <posy>-16</posy>
                 <animation effect="slide" end="1530,0" time="500" easing="inout" tween="cubic" condition="Control.HasFocus(7000)">Conditional</animation>
@@ -3683,7 +4079,7 @@
             </control> -->
             <control type="button" id="6014">
                 <include>HiddenObject</include>
-                <onfocus condition="Substring(Control.GetLabel(4325),babe)">SetFocus(22222)</onfocus>
+                <onfocus condition="Substring(Control.GetLabel(4325),babe)">SetFocus(22223)</onfocus>
                 <onfocus condition="!Substring(Control.GetLabel(4325),babe)">SetFocus(7020)</onfocus>
             </control>
             <control type="grouplist" id="7020">
@@ -3719,7 +4115,6 @@
                     <onclick condition="!Substring(Control.GetLabel(4325),artist) + !Substring(Control.GetLabel(4325),addons) + !Substring(Control.GetLabel(4325),artists) + !Substring(Control.GetLabel(4325),rss)">$INFO[Container(7000).ListItem.Property(Path)]</onclick>
                     <onclick condition="Substring(Control.GetLabel(4325),addons)">RunAddon($INFO[Container(7000).ListItem.Property(Path)])</onclick>
                     <onclick condition="Substring(Control.GetLabel(4325),rss)">PlayMedia($ESCINFO[Container(7000).ListItem.Property(Media)])</onclick>
-                    <onclick condition="SubString(Control.GetLabel(4325),actor)">RunScript(script.metadata.actors,$INFO[Container(7000).ListItem.Label])</onclick>
                 </control>
                 <control type="button" id="7016">
                     <label>$LOCALIZE[20410]</label>
@@ -4369,8 +4764,7 @@
                         <control type="button" id="6015">
                             <label>$LOCALIZE[208]</label>
                             <include>WidgetMenuLabel</include>
-                            <onclick condition="!SubString(Control.GetLabel(4325),actor)">$INFO[Container(6010).ListItem.Property(Path)]</onclick>
-                            <onclick condition="SubString(Control.GetLabel(4325),actor)">RunScript(script.metadata.actors,$INFO[Container(6010).ListItem.Label])</onclick>
+                            <onclick>$INFO[Container(6010).ListItem.Property(Path)]</onclick>
                         </control>
                         <control type="button" id="6016">
                             <label>$LOCALIZE[20410]</label>
@@ -5099,27 +5493,26 @@
                     <include condition="Library.HasContent(musicvideos) + [Window.IsActive(1124) | Substring(Skin.String(widgetlist),randommusicvideospanel)]">MusicvideoRandomItems</include>
                     <include condition="Library.HasContent(movies) + [Window.IsActive(1124) | Substring(Skin.String(widgetlist),watchlistmoviespanel)]">WatchlistMoviesItems</include>
                     <include condition="Library.HasContent(music)">RandomAlbumsItems</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomalbumspanel)">RandomAlbumsItemsHome</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomalbums)">RandomAlbumsItemsHome</include>
                     <include condition="Library.HasContent(music)">RandomArtistsItems</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomartistspanel)">RandomArtistsItemsHome</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomartists)">RandomArtistsItemsHome</include>
                     <include condition="Library.HasContent(music)">LatestAlbumsItems</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recentalbumspanel)">LatestAlbumsItemsHome</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recentalbums)">LatestAlbumsItemsHome</include>
                     <include condition="Library.HasContent(music)">WatchlistMusicItems</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),watchlistalbumspanel)">WatchlistMusicItemsHome</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),watchlistalbums)">WatchlistMusicItemsHome</include>
                     <include condition="System.HasAddon(script.metadata.actors) + [Window.IsActive(1124) | Substring(Skin.String(widgetlist),actorspanel)]">BornActorsItems</include>
-                    <include condition="!Window.IsActive(1124)">RandomAddonsItems</include>
                     <include>RandomAddonsItems</include>
-                    <include condition="!Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomaddonspanel)">RandomAddonsItemsHome</include>
+                    <include condition="!Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomaddons)">RandomAddonsItemsHome</include>
                     <include condition="Library.HasContent(tvshows)">LatestEpisodesItems</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recenttvpanel)">LatestEpisodesItemsHome</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recenttv)">LatestEpisodesItemsHome</include>
                     <include condition="Library.HasContent(tvshows)">RandomEpisodesItems</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomtvpanel)">RandomEpisodesItemsHome</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randomtv)">RandomEpisodesItemsHome</include>
                     <include condition="Library.HasContent(tvshows)">WatchListTVItems</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),watchlisttvpanel)">WatchListTVItemsHome</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),watchlisttv)">WatchListTVItemsHome</include>
                     <include condition="System.HasAddon(plugin.image.mypicsdb)">RandomPicturesItems</include>
-                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randompicspanel)">RandomPicturesItemsHome</include>
+                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),randompics)">RandomPicturesItemsHome</include>
                     <include condition="System.HasAddon(plugin.image.mypicsdb)">LatestPicturesItems</include>
-                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recentpicspanel)">LatestPicturesItemsHome</include>
+                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widgetlist),recentpics)">LatestPicturesItemsHome</include>
                     <include condition="System.HasAddon(script.games.rom.collection.browser) + [Window.IsActive(1124) | Substring(Skin.String(widgetlist),mostplayedromspanel)]">MostPlayedRomsItems</include>
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widgetlist),1custompanel)]">Custom1Widget</include>
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widgetlist),2custompanel)]">Custom2Widget</include>
@@ -5497,26 +5890,26 @@
                     <include condition="Library.HasContent(musicvideos) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),randommusicvideospanel)]">MusicvideoRandomItems2</include>
                     <include condition="Library.HasContent(movies) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),watchlistmoviespanel)]">WatchlistMoviesItems2</include>
                     <include condition="Library.HasContent(music)">RandomAlbumsItems2</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomalbumspanel)">RandomAlbumsItems2Home</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomalbums)">RandomAlbumsItems2Home</include>
                     <include condition="Library.HasContent(music)">RandomArtistsItems2</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomartistspanel)">RandomArtistsItems2Home</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomartists)">RandomArtistsItems2Home</include>
                     <include condition="Library.HasContent(music)">LatestAlbumsItems2</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recentalbumspanel)">LatestAlbumsItems2Home</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recentalbums)">LatestAlbumsItems2Home</include>
                     <include condition="Library.HasContent(music)">WatchlistMusicItems2</include>
-                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),watchlistalbumspanel)">WatchlistMusicItems2Home</include>
+                    <include condition="Library.HasContent(music) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),watchlistalbums)">WatchlistMusicItems2Home</include>
                     <include condition="System.HasAddon(script.metadata.actors) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),actorspanel)]">BornActorsItems2</include>
                     <include>RandomAddonsItems2</include>
-                    <include condition="!Window.IsActive(1124) + Substring(Skin.String(widget2list),randomaddonspanel)">RandomAddonsItems2Home</include>
+                    <include condition="!Window.IsActive(1124) + Substring(Skin.String(widget2list),randomaddons)">RandomAddonsItems2Home</include>
                     <include condition="Library.HasContent(tvshows)">LatestEpisodesItems2</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recenttvpanel)">LatestEpisodesItems2Home</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recenttv)">LatestEpisodesItems2Home</include>
                     <include condition="Library.HasContent(tvshows)">RandomEpisodesItems2</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomtvpanel)">RandomEpisodesItems2Home</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randomtv)">RandomEpisodesItems2Home</include>
                     <include condition="Library.HasContent(tvshows)">WatchListTVItems2</include>
-                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),watchlisttvpanel)">WatchListTVItems2Home</include>
+                    <include condition="Library.HasContent(tvshows) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),watchlisttv)">WatchListTVItems2Home</include>
                     <include condition="System.HasAddon(plugin.image.mypicsdb)">RandomPicturesItems2</include>
-                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randompicspanel)">RandomPicturesItems2Home</include>
+                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),randompics)">RandomPicturesItems2Home</include>
                     <include condition="System.HasAddon(plugin.image.mypicsdb)">LatestPicturesItems2</include>
-                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recentpicspanel)">LatestPicturesItems2Home</include>
+                    <include condition="System.HasAddon(plugin.image.mypicsdb) + !Window.IsActive(1124) + Substring(Skin.String(widget2list),recentpics)">LatestPicturesItems2Home</include>
                     <include condition="System.HasAddon(script.games.rom.collection.browser) + [Window.IsActive(1124) | Substring(Skin.String(widget2list),mostplayedromspanel)]">MostPlayedRomsItems2</include>
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widget2list),7custompanel)]">Custom1Widget2</include>
                     <include condition="System.HasAddon(script.randomandlastitems) + [Window.IsActive(1124) | SubString(Skin.String(widget2list),8custompanel)]">Custom2Widget2</include>
@@ -6056,87 +6449,87 @@
         </item>
     </include>
     <include name="WundergroundWidget">
-        <control type="group">
-            <control type="label">
-                <posx>50</posx>
-                <posy>-90</posy>
-                <width>900</width>
-                <height>300</height>
-                <align>center</align>
-                <font>Font_ShowcaseMainLabel2</font>
-                <textcolor>white2</textcolor>
-                <label>$INFO[Window(Weather).Property(Location)]</label>
+            <control type="group">
+                <control type="label">
+                    <posx>50</posx>
+                    <posy>-90</posy>
+                    <width>900</width>
+                    <height>300</height>
+                    <align>center</align>
+                    <font>Font_ShowcaseMainLabel2</font>
+                    <textcolor>white2</textcolor>
+                    <label>$INFO[Window(Weather).Property(Location)]</label>
+                </control>
+                <control type="label">
+                    <posx>200</posx>
+                    <posy>68</posy>
+                    <width>210</width>
+                    <height>300</height>
+                    <align>right</align>
+                    <textcolor>$VAR[SubTitleColorVar]</textcolor>
+                    <label>$LOCALIZE[42257][CR]$LOCALIZE[402][CR]$LOCALIZE[406][CR]$LOCALIZE[403][CR]$LOCALIZE[405][CR]$LOCALIZE[31223][CR]$LOCALIZE[31239]</label>
+                </control>
+                <control type="label">
+                    <posx>210</posx>
+                    <posy>68</posy>
+                    <width>250</width>
+                    <height>300</height>
+                    <label>$INFO[Window(weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.Humidity)][CR]$INFO[Window(weather).Property(Current.UVIndex)][CR]$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.Visibility)][CR]$INFO[Window(weather).Property(Current.Location.Latitude)] $INFO[Window(weather).Property(Current.Pressure)]</label>
+                </control>
+                <control type="label">
+                    <posx>640</posx>
+                    <posy>68</posy>
+                    <width>230</width>
+                    <height>300</height>
+                    <align>right</align>
+                    <textcolor>$VAR[SubTitleColorVar]</textcolor>
+                    <label>$LOCALIZE[404][CR]$LOCALIZE[33020][CR]$LOCALIZE[33027][CR]$LOCALIZE[33028][CR]$LOCALIZE[31226][CR]$LOCALIZE[31237][CR]$LOCALIZE[31238]</label>
+                </control>
+                <control type="label">
+                    <posx>650</posx>
+                    <posy>68</posy>
+                    <width>290</width>
+                    <height>300</height>
+                    <label>$INFO[Window(weather).Property(Current.Wind)][CR]$INFO[Window(weather).Property(Current.Condition)][CR]$INFO[Window(weather).Property(Today.Sunrise)][CR]$INFO[Window(weather).Property(Today.Sunset)][CR]$INFO[Window(weather).Property(Today.MoonPhase)][CR]$INFO[Window(weather).Property(Today.AvgLowTemperature)][CR]$INFO[Window(weather).Property(Today.AvgHighTemperature)]</label>
+                </control>
+                <control type="image">
+                    <posx>900</posx>
+                    <posy>22</posy>
+                    <width>400</width>
+                    <height>356</height>
+                    <aspectratio aligny="center">scale</aspectratio>
+                    <texture background="true">$INFO[Window(weather).Property(Current.Earth.Phase.Image)]</texture>
+                </control>
+                <control type="multiimage">
+                    <posx>1020</posx>
+                    <posy>17</posy>
+                    <width>600</width>
+                    <height>370</height>
+                    <imagepath>$INFO[Window(weather).Property(MapPath)]</imagepath>
+                    <timeperimage>500</timeperimage>
+                    <pauseatend>1000</pauseatend>
+                    <fadetime>0</fadetime>
+                    <randomize>false</randomize>
+                    <loop>yes</loop>
+                    <aspectratio>keep</aspectratio>
+                    <aligny>center</aligny>
+                </control>
+                <control type="image">
+                    <posx>1110</posx>
+                    <posy>320</posy>
+                    <width>426</width>
+                    <height>47</height>
+                    <texture>weather/whitepanel.png</texture>
+                </control>
+                <control type="image">
+                    <posx>1070</posx>
+                    <posy>322</posy>
+                    <width>506</width>
+                    <height>42</height>
+                    <texture>weather/key2.png</texture>
+                    <aspectratio>keep</aspectratio>
+                </control>
             </control>
-            <control type="label">
-                <posx>200</posx>
-                <posy>68</posy>
-                <width>210</width>
-                <height>300</height>
-                <align>right</align>
-                <textcolor>$VAR[SubTitleColorVar]</textcolor>
-                <label>$LOCALIZE[31857][CR]$LOCALIZE[402][CR]$LOCALIZE[406][CR]$LOCALIZE[403][CR]$LOCALIZE[405][CR]$LOCALIZE[31223][CR]$LOCALIZE[31239]</label>
-            </control>
-            <control type="label">
-                <posx>210</posx>
-                <posy>68</posy>
-                <width>250</width>
-                <height>300</height>
-                <label>$INFO[Window(weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.Humidity)][CR]$INFO[Window(weather).Property(Current.UVIndex)][CR]$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits][CR]$INFO[Window(weather).Property(Current.Visibility)][CR]$INFO[Window(weather).Property(Current.Location.Latitude)] $INFO[Window(weather).Property(Current.Pressure)]</label>
-            </control>
-            <control type="label">
-                <posx>640</posx>
-                <posy>68</posy>
-                <width>230</width>
-                <height>300</height>
-                <align>right</align>
-                <textcolor>$VAR[SubTitleColorVar]</textcolor>
-                <label>$LOCALIZE[404][CR]$LOCALIZE[33020][CR]$LOCALIZE[33027][CR]$LOCALIZE[33028][CR]$LOCALIZE[31226][CR]$LOCALIZE[31237][CR]$LOCALIZE[31238]</label>
-            </control>
-            <control type="label">
-                <posx>650</posx>
-                <posy>68</posy>
-                <width>290</width>
-                <height>300</height>
-                <label>$INFO[Window(weather).Property(Current.Wind)][CR]$INFO[Window(weather).Property(Current.Condition)][CR]$INFO[Window(weather).Property(Today.Sunrise)][CR]$INFO[Window(weather).Property(Today.Sunset)][CR]$INFO[Window(weather).Property(Today.MoonPhase)][CR]$INFO[Window(weather).Property(Today.AvgLowTemperature)][CR]$INFO[Window(weather).Property(Today.AvgHighTemperature)]</label>
-            </control>
-            <control type="image">
-                <posx>900</posx>
-                <posy>22</posy>
-                <width>400</width>
-                <height>356</height>
-                <aspectratio aligny="center">scale</aspectratio>
-                <texture background="true">$INFO[Window(weather).Property(Current.Earth.Phase.Image)]</texture>
-            </control>
-            <control type="multiimage">
-                <posx>1020</posx>
-                <posy>17</posy>
-                <width>600</width>
-                <height>370</height>
-                <imagepath>$INFO[Window(weather).Property(MapPath)]</imagepath>
-                <timeperimage>500</timeperimage>
-                <pauseatend>1000</pauseatend>
-                <fadetime>0</fadetime>
-                <randomize>false</randomize>
-                <loop>yes</loop>
-                <aspectratio>keep</aspectratio>
-                <aligny>center</aligny>
-            </control>
-            <control type="image">
-                <posx>1110</posx>
-                <posy>320</posy>
-                <width>426</width>
-                <height>47</height>
-                <texture>weather/whitepanel.png</texture>
-            </control>
-            <control type="image">
-                <posx>1070</posx>
-                <posy>322</posy>
-                <width>506</width>
-                <height>42</height>
-                <texture>weather/key2.png</texture>
-                <aspectratio>keep</aspectratio>
-            </control>
-        </control>
     </include>
     <!-- MikeBZH44 Start -->
     <!-- Change position for cases and add resolutions clear or BD/DVD Case -->
@@ -6171,7 +6564,7 @@
                 <control type="group">
                     <posx>580</posx>
                     <posy>180</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6193,7 +6586,7 @@
                 <control type="group">
                     <posx>500</posx>
                     <posy>1170</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="285" end="285" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6215,7 +6608,7 @@
                 <control type="group">
                     <posx>1950</posx>
                     <posy>0</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6237,7 +6630,7 @@
                 <control type="group">
                     <posx>1550</posx>
                     <posy>300</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6259,7 +6652,7 @@
                 <control type="group">
                     <posx>1380</posx>
                     <posy>650</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="-35" end="-35" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6281,7 +6674,7 @@
                 <control type="group">
                     <posx>1650</posx>
                     <posy>650</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6303,7 +6696,7 @@
                 <control type="group">
                     <posx>1100</posx>
                     <posy>400</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6325,7 +6718,7 @@
                 <control type="group">
                     <posx>800</posx>
                     <posy>400</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="16" end="16" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -6347,7 +6740,7 @@
                 <control type="group">
                     <posx>1100</posx>
                     <posy>1230</posy>
-                    <animation effect="zoom" start="180" end="180" center="auto" time="0" condition="true">Conditional</animation>
+                    <animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
                     <animation effect="rotate" center="auto" start="-65" end="-65" time="0" condition="true">Conditional</animation>
                     <control type="image">
                         <posx>39</posx>
@@ -7150,7 +7543,7 @@
                     <height>140</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
                     <texture diffuse="thumbs/banner_mask.png" fallback="common/black.png">$INFO[ListItem.Property(Fanart)]</texture>
-                </control>
+                </control>  
                 <control type="image">
                     <posx>30</posx>
                     <posy>8</posy>
@@ -7158,17 +7551,6 @@
                     <height>140</height>
                     <aspectratio scalediffuse="false">keep</aspectratio>
                     <texture>$INFO[ListItem.Property(Logo)]</texture>
-                </control>
-                <control type="label">
-                    <posx>399</posx>
-                    <posy>8</posy>
-                    <width>758</width>
-                    <height>105</height>
-                    <align>center</align>
-                    <label>$INFO[ListItem.Label]</label>
-                    <shadowcolor>black</shadowcolor>
-                    <font>Font_Bold24</font>
-                    <visible>IsEmpty(ListItem.Property(Banner)) + IsEmpty(ListItem.Property(Logo)) + IsEmpty(ListItem.Property(EpisodeNumber))</visible>
                 </control>
             </control>
             <control type="image">
@@ -7180,6 +7562,7 @@
                 <texture background="true" diffuse="thumbs/banner_mask.png">$INFO[ListItem.Property(Banner)]</texture>
             </control>
         </control>
+
         <control type="label">
             <posx>399</posx>
             <posy>106</posy>
@@ -7188,7 +7571,6 @@
             <align>center</align>
             <label>[UPPERCASE]$INFO[ListItem.Property(EpisodeNumber),,: ][/UPPERCASE]$INFO[ListItem.Label]</label>
             <font>Font_Reg17</font>
-            <visible>!IsEmpty(ListItem.Property(EpisodeNumber))</visible>
         </control>
     </include>
     <include name="WidgetRCBLayout">
@@ -7328,13 +7710,6 @@
             <aspectratio>keep</aspectratio>
         </control>
         <control type="image">
-            <posx>260</posx>
-            <width>80</width>
-            <height>80</height>
-            <texture background="true">$INFO[ListItem.Property(InProgress)]</texture>
-            <aspectratio>scale</aspectratio>
-        </control>
-        <control type="image">
             <posy>300</posy>
             <width>340</width>
             <height>40</height>
@@ -7354,6 +7729,16 @@
             <height>340</height>
             <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
             <aspectratio align="center">scale</aspectratio>
+            <!--             <visible>IsEmpty(ListItem.Property(Fanart))</visible>
+ -->
+        </control>
+        <control type="image">
+            <posx>30</posx>
+            <posy>30</posy>
+            <width>564</width>
+            <height>280</height>
+            <texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+            <aspectratio align="center">keep</aspectratio>
             <!--             <visible>IsEmpty(ListItem.Property(Fanart))</visible>
  -->
         </control>

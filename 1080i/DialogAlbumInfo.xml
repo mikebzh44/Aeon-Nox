@@ -96,7 +96,7 @@
                         <animation effect="slide" end="0,180" time="400" tween="cubic">Hidden</animation>
                         <animation effect="slide" start="0,180" end="0,0" time="700" tween="cubic" delay="400">WindowOpen</animation>
                         <animation type="WindowClose">
-                            <effect type="slide" end="0,180" time="400" tween="cubic" easing="in" />
+                            <effect type="slide" end="0,180" time="400" tween="cubic" easing="in" delay="0" />
                             <effect type="fade" start="100" end="0" time="0" delay="400" />
                             <condition type="!Player.Playing" />
                         </animation>
@@ -128,9 +128,9 @@
                         <width>480</width>
                         <height>450</height>
                         <texture>thumbs/boxes/cd_shadow_light.png</texture>
-                        <!-- MikebZH44 Start : Display clear case -->
+                        <!-- MikeBZH44 Start : Display clear case -->
                         <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
-                        <!-- MikebZH44 Start -->
+                        <!-- MikeBZH44 End -->
                     </control>
                     <control type="group">
                         <animation effect="fade" time="750">VisibleChange</animation>
@@ -140,11 +140,11 @@
                             <width>480</width>
                             <height>450</height>
                             <texture>thumbs/boxes/cd_glass.png</texture>
-                            <!-- MikebZH44 Start : Display clear case -->
+                            <!-- MikeBZH44 Start : Display clear case -->
                             <visible>!Stringcompare(Skin.String(CDCase),cd)</visible>
-                            <!-- MikebZH44 Start -->
+                            <!-- MikeBZH44 End -->
                         </control>
-                        <!-- MikebZH44 Start : Display CD case -->
+                        <!-- MikeBZH44 Start : Display CD case -->
                         <control type="image">
                             <posy>-270</posy>
                             <width>480</width>
@@ -152,7 +152,7 @@
                             <texture>thumbs/boxes/cd_box_closed.png</texture>
                             <visible>Stringcompare(Skin.String(CDCase),cd)</visible>
                         </control>
-                        <!-- MikebZH44 Start -->
+                        <!-- MikeBZH44 End -->
                     </control>
                 </control>
             </control>
@@ -313,7 +313,7 @@
                         <control type="label">
                             <width min="50" max="400">auto</width>
                             <font>Font_Reg19</font>
-                            <label>$LOCALIZE[31008]:</label>
+                            <label>$LOCALIZE[564]:</label>
                             <textcolor>$VAR[SubTitleColorVar]</textcolor>
                             <shadowcolor>black</shadowcolor>
                             <aligny>bottom</aligny>
@@ -480,56 +480,6 @@
                         <posy>80</posy>
                         <width>778</width>
                         <orientation>horizontal</orientation>
-                        <visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
-                        <itemgap>10</itemgap>
-                        <control type="label">
-                            <width min="50" max="400">auto</width>
-                            <font>Font_Reg19</font>
-                            <label>$LOCALIZE[21893]:</label>
-                            <textcolor>$VAR[SubTitleColorVar]</textcolor>
-                            <shadowcolor>black</shadowcolor>
-                            <aligny>bottom</aligny>
-                        </control>
-                        <control type="fadelabel">
-                            <width>671</width>
-                            <font>Font_Reg19</font>
-                            <label>$INFO[ListItem.Property(Artist_Born)]</label>
-                            <textcolor>white3</textcolor>
-                            <shadowcolor>black</shadowcolor>
-                            <pauseatend>1000</pauseatend>
-                            <aligny>bottom</aligny>
-                        </control>
-                    </control>
-                    <control type="grouplist">
-                        <posx>500</posx>
-                        <posy>80</posy>
-                        <width>778</width>
-                        <orientation>horizontal</orientation>
-                        <visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
-                        <itemgap>10</itemgap>
-                        <control type="label">
-                            <width min="50" max="400">auto</width>
-                            <font>Font_Reg19</font>
-                            <label>$LOCALIZE[21894]:</label>
-                            <textcolor>$VAR[SubTitleColorVar]</textcolor>
-                            <shadowcolor>black</shadowcolor>
-                            <aligny>bottom</aligny>
-                        </control>
-                        <control type="fadelabel">
-                            <width>671</width>
-                            <font>Font_Reg19</font>
-                            <label>$INFO[ListItem.Property(Artist_Formed)]</label>
-                            <textcolor>white3</textcolor>
-                            <shadowcolor>black</shadowcolor>
-                            <pauseatend>1000</pauseatend>
-                            <aligny>bottom</aligny>
-                        </control>
-                    </control>
-                    <control type="grouplist">
-                        <posx>500</posx>
-                        <posy>120</posy>
-                        <width>778</width>
-                        <orientation>horizontal</orientation>
                         <visible>!IsEmpty(ListItem.Property(Artist_Died))</visible>
                         <itemgap>10</itemgap>
                         <control type="label">
@@ -543,7 +493,7 @@
                         <control type="fadelabel">
                             <width>671</width>
                             <font>Font_Reg19</font>
-                            <label>$INFO[ListItem.Property(Artist_Died)]</label>
+                            <label fallback="N/A">$INFO[ListItem.Property(Artist_Died)]</label>
                             <textcolor>white3</textcolor>
                             <shadowcolor>black</shadowcolor>
                             <pauseatend>1000</pauseatend>
@@ -552,7 +502,7 @@
                     </control>
                     <control type="grouplist">
                         <posx>500</posx>
-                        <posy>120</posy>
+                        <posy>80</posy>
                         <width>778</width>
                         <orientation>horizontal</orientation>
                         <visible>!IsEmpty(ListItem.Property(Artist_Disbanded))</visible>
@@ -560,7 +510,7 @@
                         <control type="label">
                             <width min="50" max="400">auto</width>
                             <font>Font_Reg19</font>
-                            <label>$LOCALIZE[21896]:</label>
+                            <label>$LOCALIZE[21896i]:</label>
                             <textcolor>$VAR[SubTitleColorVar]</textcolor>
                             <shadowcolor>black</shadowcolor>
                             <aligny>bottom</aligny>
@@ -1526,11 +1476,6 @@
                 <visible>!Skin.HasSetting(kioskmode)</visible>
                 <control type="group">
                     <include>Animation_MediaMenuSlide2</include>
-                <animation type="Conditional" condition="Window.IsActive(1121)">
-                    <effect type="fade" start="100" end="0" time="500" />
-                    <effect type="zoom" end="66,100" time="400" easing="in" tween="cubic" />
-                    <effect type="slide" end="-49" time="400" easing="in" tween="cubic" />
-                </animation>
                     <control type="grouplist" id="9003">
                         <width>400</width>
                         <height>1080</height>
@@ -1568,7 +1513,7 @@
                             <visible>System.HasAddon(script.cdartmanager)</visible>
                         </control>
                         <control type="radiobutton" id="121">
-                            <label>31730</label>
+                            <label>42330</label>
                             <include>Objects_MediaMenuButtonIcons</include>
                             <onclick>Skin.ToggleSetting(usescriptalbumlist)</onclick>
                             <selected>Skin.HasSetting(usescriptalbumlist)</selected>
