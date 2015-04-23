@@ -212,7 +212,6 @@
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="label">
-                                <posx>142</posx>
                                 <posy>110</posy>
                                 <width>285</width>
                                 <height>51</height>
@@ -268,7 +267,6 @@
                                 <bordersize>5</bordersize>
                             </control>
                             <control type="label">
-                                <posx>142</posx>
                                 <posy>110</posy>
                                 <width>285</width>
                                 <height>51</height>
