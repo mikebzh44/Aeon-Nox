@@ -274,7 +274,8 @@
                             <texture border="5">osd/osd_settings_buttonnf.png</texture>
                         </control>
                         <control type="image">
-                            <width>404</width>
+                            <posx>20</posx>
+                            <width>414</width>
                             <height>109</height>
                             <texture colordiffuse="$VAR[FocusTextureColorVar]">views/tripanel/listselect_fo.png</texture>
                             <visible>Control.HasFocus(7500)</visible>
